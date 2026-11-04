@@ -144,3 +144,4 @@ export default async function InquiryDetailPage({ params }: Props) {
     </div>
   );
 }
+

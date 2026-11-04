@@ -45,3 +45,4 @@ ${allRoutes.map((r) => `  <url>
     },
   });
 }
+

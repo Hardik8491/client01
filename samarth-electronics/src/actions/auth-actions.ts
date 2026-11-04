@@ -106,3 +106,4 @@ export async function updateAdminPassword(formData: FormData) {
     return { success: false, error: "Failed to update password." };
   }
 }
+
