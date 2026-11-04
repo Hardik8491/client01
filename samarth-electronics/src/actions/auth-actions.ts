@@ -58,7 +58,7 @@ export async function updateCompanySettings(formData: FormData) {
   };
 
   const result = settingsSchema.safeParse(raw);
-  if (!result.success) return { success: false, error: result.error.errors[0]?.message };
+  if (!result.success) return { success: false, error: result.error.issues[0]?.message || "Validation failed" };
 
   try {
     const existing = await prisma.companySettings.findFirst();

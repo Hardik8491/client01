@@ -40,7 +40,7 @@ export async function createProduct(formData: FormData) {
 
   const result = productSchema.safeParse(raw);
   if (!result.success) {
-    return { success: false, error: result.error.errors[0]?.message };
+    return { success: false, error: result.error.issues[0]?.message || "Validation failed" };
   }
 
   try {
@@ -102,7 +102,7 @@ export async function updateProduct(productId: string, formData: FormData) {
   };
 
   const result = productSchema.safeParse(raw);
-  if (!result.success) return { success: false, error: result.error.errors[0]?.message };
+  if (!result.success) return { success: false, error: result.error.issues[0]?.message || "Validation failed" };
 
   try {
     const { images, ...data } = result.data;

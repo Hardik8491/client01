@@ -193,3 +193,4 @@ export default function EditProductPage({ params }: Props) {
     </div>
   );
 }
+
