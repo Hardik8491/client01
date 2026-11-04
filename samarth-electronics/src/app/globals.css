@@ -1,5 +1,4 @@
-@import "tailwindcss";
-@source "../../src";
+@import "../../public/compiled-tailwind.css";
 
 :root {
   --background: #ffffff;
@@ -25,7 +24,6 @@ body {
   padding: 0;
 }
 
-/* Fallback base styles for standard elements */
 a {
   text-decoration: none;
   color: inherit;
