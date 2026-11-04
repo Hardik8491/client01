@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build:css": "node -e \"const postcss = require('postcss'); const tailwind = require('@tailwindcss/postcss'); const fs = require('fs'); const css = fs.readFileSync('src/app/globals.css', 'utf8'); postcss([tailwind()]).process(css, { from: 'src/app/globals.css' }).then(res => { fs.writeFileSync('public/compiled-tailwind.css', res.css); console.log('Tailwind compiled!'); });\"",
-    "build": "next build --webpack",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "db:push": "prisma db push",

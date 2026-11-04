@@ -1,13 +1,11 @@
-import { PrismaClient } from "@prisma/client";
 import bcryptjs from "bcryptjs";
+import { prisma } from "../src/lib/prisma";
 import {
   initialCompanySettings,
   initialCategories,
   initialProducts,
   initialServices,
 } from "../src/lib/seed-data";
-
-const prisma = new PrismaClient();
 
 async function main() {
   console.log("🌱 Starting Samarth Electronics database seed...");
@@ -27,7 +25,7 @@ async function main() {
       role: "OWNER",
     },
   });
-  console.log(`✅ Admin user seeded: ${admin.email}`);
+  console.log(`✅ Admin user seeded: ${admin?.email || adminEmail}`);
 
   // 2. Seed Company Settings
   await prisma.companySettings.upsert({
@@ -176,6 +174,7 @@ main()
     process.exit(1);
   })
   .finally(async () => {
-    await prisma.$disconnect();
+    if (prisma?.$disconnect) {
+      await prisma.$disconnect();
+    }
   });
-
