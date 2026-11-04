@@ -20,8 +20,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
-      <body className="min-h-full flex flex-col antialiased bg-white text-gray-900 font-sans">
+    <html lang="en" className="h-full scroll-smooth" suppressHydrationWarning>
+      <body
+        className="min-h-full flex flex-col antialiased bg-white text-gray-900 font-sans"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
