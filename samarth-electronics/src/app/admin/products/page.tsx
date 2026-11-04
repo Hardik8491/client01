@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Plus, Eye, EyeOff, Pencil, Trash2, Search } from "lucide-react";
+import { Plus, Eye, EyeOff, Pencil, Trash2, Search, Package } from "lucide-react";
 import { initialProducts, initialCategories } from "@/lib/seed-data";
 import Image from "next/image";
 import type { Metadata } from "next";

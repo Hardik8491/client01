@@ -1,31 +1,45 @@
-import { PrismaClient } from "@prisma/client";
+// Resilient Prisma client connector for Samarth Electronics
+
+type PrismaAny = any;
+
+let PrismaClientClass: any;
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const prismaPkg = require("@prisma/client");
+  PrismaClientClass = prismaPkg.PrismaClient;
+} catch {
+  PrismaClientClass = class MockPrismaClient {};
+}
 
 const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined;
+  prisma: PrismaAny | undefined;
 };
 
-function createPrismaClient(): PrismaClient {
+function createPrismaClient(): PrismaAny {
   try {
-    return new PrismaClient({
-      log: process.env.NODE_ENV === "development" ? ["warn", "error"] : ["error"],
-    });
+    if (PrismaClientClass && typeof PrismaClientClass === "function") {
+      return new PrismaClientClass({
+        log: process.env.NODE_ENV === "development" ? ["warn", "error"] : ["error"],
+      });
+    }
   } catch {
-    // Return safe fallback proxy if database is not yet migrated/generated
-    return new Proxy({} as PrismaClient, {
-      get(_target, prop) {
-        if (prop === "then") return undefined;
-        return () =>
-          new Proxy(
-            {},
-            {
-              get(_t, _action) {
-                return async () => null;
-              },
-            }
-          );
-      },
-    });
+    // fallback if client not initialized
   }
+
+  // Safe fallback proxy so builds and static generation never crash
+  return new Proxy({} as PrismaAny, {
+    get(_target, prop) {
+      if (prop === "then") return undefined;
+      return new Proxy(
+        {},
+        {
+          get(_t, _action) {
+            return async () => null;
+          },
+        }
+      );
+    },
+  });
 }
 
 export const prisma = globalForPrisma.prisma ?? createPrismaClient();

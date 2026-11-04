@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
     const result = inquirySchema.safeParse(raw);
     if (!result.success) {
-      return NextResponse.json({ success: false, error: "Validation failed: " + result.error.errors[0]?.message }, { status: 400 });
+      return NextResponse.json({ success: false, error: "Validation failed: " + (result.error.issues[0]?.message || "Invalid input") }, { status: 400 });
     }
 
     const data = result.data;

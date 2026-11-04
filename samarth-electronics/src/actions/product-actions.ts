@@ -176,7 +176,7 @@ export async function createCategory(formData: FormData) {
   };
 
   const result = categorySchema.safeParse(raw);
-  if (!result.success) return { success: false, error: result.error.errors[0]?.message };
+  if (!result.success) return { success: false, error: result.error.issues[0]?.message || "Validation failed" };
 
   try {
     await prisma.category.create({ data: result.data });
@@ -202,7 +202,7 @@ export async function updateCategory(categoryId: string, formData: FormData) {
   };
 
   const result = categorySchema.safeParse(raw);
-  if (!result.success) return { success: false, error: result.error.errors[0]?.message };
+  if (!result.success) return { success: false, error: result.error.issues[0]?.message || "Validation failed" };
 
   try {
     await prisma.category.update({ where: { id: categoryId }, data: result.data });

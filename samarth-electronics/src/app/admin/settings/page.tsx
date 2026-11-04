@@ -33,7 +33,7 @@ export default function AdminSettingsPage() {
       <input
         name={name}
         type={type}
-        defaultValue={defaultValue ?? (settings as Record<string, unknown>)[name] as string ?? ""}
+        defaultValue={defaultValue ?? ((settings as unknown as Record<string, unknown>)[name] as string) ?? ""}
         required={required}
         className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
