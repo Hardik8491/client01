@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import "./globals.css";
-
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
 export const metadata: Metadata = {
   title: { default: "Samarth Electronics | B2B Electronics Manufacturing", template: "%s | Samarth Electronics" },
@@ -23,8 +20,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} h-full scroll-smooth`}>
-      <body className="min-h-full flex flex-col antialiased bg-white text-gray-900">{children}</body>
+    <html lang="en" className="h-full scroll-smooth">
+      <body className="min-h-full flex flex-col antialiased bg-white text-gray-900 font-sans">
+        {children}
+      </body>
     </html>
   );
 }
