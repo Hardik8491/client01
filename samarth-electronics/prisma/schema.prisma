@@ -1,0 +1,183 @@
+// Prisma schema for Samarth Electronics (B2B Electronics Manufacturing)
+// PostgreSQL database with flexible specifications support
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  OWNER
+}
+
+enum ProductStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum InquiryStatus {
+  NEW
+  IN_REVIEW
+  CONTACTED
+  QUOTED
+  CLOSED
+}
+
+enum ServiceStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String   @default("Gopal Bhammar")
+  role         Role     @default(OWNER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("admin_users")
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  image       String?
+  isActive    Boolean   @default(true)
+  sortOrder   Int       @default(0)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([isActive])
+  @@map("categories")
+}
+
+model Product {
+  id               String         @id @default(cuid())
+  categoryId       String
+  category         Category       @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  name             String
+  slug             String         @unique
+  sku              String         @unique
+  shortDescription String?
+  description      String
+  specifications   Json?          // Key-value specifications: { "Input Voltage": "24V DC", "Operating Temp": "-20C to +85C" }
+  applications     String[]       // Target applications/industries: ["Industrial Automation", "Renewable Energy"]
+  features         String[]       // Key highlights: ["High efficiency >94%", "Built-in Over-voltage Protection"]
+  datasheetUrl     String?
+  status           ProductStatus  @default(PUBLISHED)
+  featured         Boolean        @default(false)
+  sortOrder        Int            @default(0)
+  images           ProductImage[]
+  inquiries        Inquiry[]
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  @@index([slug])
+  @@index([sku])
+  @@index([categoryId])
+  @@index([status])
+  @@index([featured])
+  @@map("products")
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  imageUrl  String
+  altText   String?
+  sortOrder Int      @default(0)
+  isPrimary Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+  @@map("product_images")
+}
+
+model Service {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  shortDesc   String?
+  description String
+  features    String[]
+  icon        String?       // Lucide icon identifier e.g. "Cpu", "ShieldCheck", "Layers"
+  imageUrl    String?
+  sortOrder   Int           @default(0)
+  status      ServiceStatus @default(PUBLISHED)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([slug])
+  @@index([status])
+  @@map("services")
+}
+
+model PageContent {
+  id          String   @id @default(cuid())
+  pageKey     String   // e.g. "home", "about", "quality"
+  sectionKey  String   // e.g. "hero", "overview", "certifications"
+  contentJson Json     // Structured arbitrary JSON content for dynamic CMS customization
+  updatedAt   DateTime @updatedAt
+
+  @@unique([pageKey, sectionKey])
+  @@map("page_contents")
+}
+
+model Inquiry {
+  id          String        @id @default(cuid())
+  name        String
+  companyName String?
+  email       String
+  phone       String
+  productId   String?
+  product     Product?      @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productName String?       // Cached in case product is removed
+  quantity    String?       // B2B batch request e.g. "500 units/month" or "Prototypes"
+  message     String
+  status      InquiryStatus @default(NEW)
+  internalNotes String?
+  ipAddress   String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("inquiries")
+}
+
+model CompanySettings {
+  id            String   @id @default(cuid())
+  companyName   String   @default("Samarth Electronics")
+  ownerName     String   @default("Gopal Bhammar")
+  tagline       String   @default("Precision Electronics Manufacturing & Turnkey Solutions")
+  email         String   @default("contact@samarthelectronics.in")
+  phone         String   @default("+91 98765 43210")
+  whatsapp      String   @default("+919876543210")
+  address       String   @default("Plot No. 42, GIDC Industrial Estate")
+  city          String   @default("Rajkot")
+  state         String   @default("Gujarat")
+  pincode       String   @default("360001")
+  country       String   @default("India")
+  gstNumber     String?  @default("24AABCS1234F1Z5")
+  workingHours  String   @default("Mon - Sat: 9:00 AM - 7:00 PM")
+  aboutSummary  String?
+  googleMapsUrl String?
+  socialLinks   Json?    // { "linkedin": "", "youtube": "", "indiamart": "" }
+  updatedAt     DateTime @updatedAt
+
+  @@map("company_settings")
+}
+
