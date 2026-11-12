@@ -6,7 +6,7 @@ import { initialProducts, initialCategories } from "@/lib/seed-data";
 
 export const metadata: Metadata = {
   title: "Product Catalogue",
-  description: "Browse 500+ industrial electronic products from Samarth Electronics — Controllers, SMPS, IoT Gateways, Motor Drives, and more.",
+  description: "Browse LED Lighting & Electrical Products from Samarth Electronics Hub — Panels, Downlights, COBs, Floodlights, Streetlights, and SMPS Drivers.",
 };
 
 interface Props {
@@ -34,9 +34,9 @@ export default async function ProductsPage({ searchParams }: Props) {
       <section className="bg-gradient-to-br from-blue-950 to-blue-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">Our Products</span>
-          <h1 className="text-4xl font-bold mt-2 mb-4">Industrial Electronics Catalogue</h1>
+          <h1 className="text-4xl font-bold mt-2 mb-4">LED Lighting & Electrical Catalogue</h1>
           <p className="text-blue-100 text-lg max-w-xl">
-            Browse our complete range of industrial-grade electronics manufactured in Rajkot, Gujarat.
+            Browse our complete range of LED illumination fixtures and SMPS power supplies from Dahod, Gujarat.
           </p>
         </div>
       </section>

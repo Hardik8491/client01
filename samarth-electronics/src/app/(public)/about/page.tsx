@@ -6,15 +6,15 @@ import { initialCompanySettings } from "@/lib/seed-data";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Samarth Electronics Hub — Gujarat's reliable LED lighting and electrical products enterprise led by Gopalbhai Bhammar and Lokeshkumar Solaki.",
+  description: "Learn about SAMARTH ELECTRONICS HUB — Dahod, Gujarat based partnership startup dealing in LED lighting, electrical goods, and drivers, led by Gopalbhai Bhammar and Lokeshkumar Solanki.",
 };
 
 const MILESTONES = [
-  { year: "2026", event: "Official Partnership incorporation of SAMARTH ELECTRONICS HUB in Dahod, Gujarat" },
-  { year: "2026", event: "Udyam MSME Micro-Enterprise Registration (UDYAM-GJ-07-0040753) for manufacturing & electrical trade" },
-  { year: "2026", event: "GST Registration Form GST REG-06 approved under GSTIN 24AGBFS1171R1ZM" },
-  { year: "2026", event: "Applied for Trademark registration for SAMARTH ELECTRONICS HUB under Class 9" },
-  { year: "2026", event: "Rolled out comprehensive 100+ product OEM lighting catalogue & SMPS driver distribution" },
+  { year: "31 Aug 2026", event: "Business commencement and partnership registration of SAMARTH ELECTRONICS HUB" },
+  { year: "11 Sep 2026", event: "MSME Udyam Micro Enterprise registration (UDYAM-GJ-07-0040753) for manufacturing & electrical trade" },
+  { year: "12 Sep 2026", event: "Trademark application filed (App No. 7993579) under Class 9" },
+  { year: "07 Oct 2026", event: "Government of India regular GST registration approved (GSTIN: 24AGBFS1171R1ZM)" },
+  { year: "Current", event: "Launch of trade catalogue spanning LED panels, downlights, COBs, floodlights, and SMPS drivers" },
 ];
 
 const VALUES = [
@@ -57,31 +57,29 @@ export default function AboutPage() {
               />
             </div>
             <div>
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Enterprise Leadership</span>
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Startup Profile</span>
               <h2 className="text-3xl font-bold text-gray-900 mt-2 mb-6">
-                Partnership Dedicated to Quality & Transparency
+                Partnership Built on Quality, Compliance & Value
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                SAMARTH ELECTRONICS HUB is constituted as a partnership enterprise authorized and actively managed by{" "}
-                <strong>Bhammar Gopalbhai Rambhai</strong> and <strong>Solaki Lokeshkumar Rameshbhai</strong>.
-                Based out of Dahod district, Gujarat, our vision is to simplify access to premium LED illumination
-                technologies for builders, electrical contractors, and retail shops.
+                <strong>SAMARTH ELECTRONICS HUB</strong> is a newly established partnership startup officially commenced on{" "}
+                <strong>31 August 2026</strong>. Headquartered in Limdi / Limadi, Dahod District, Gujarat, the enterprise is authorized and managed by partners{" "}
+                <strong>Bhammar Gopalbhai Rambhai</strong> and <strong>Solanki Lokesh Kumar Rameshbhai</strong> (recorded as <em>SOLAKI LOKESHKUMAR RAMESHBHAI</em> in GST records).
               </p>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Our portfolio spans architectural slim panels, deep and mini downlights, precision COBs, heavy-duty
-                floodlights, streetlights, and robust SMPS power supplies. Every customer transaction is backed by
-                genuine GST invoices and transparent warranty terms.
+                Our core focus is the supply and distribution of modern LED illumination systems and electrical goods — spanning slim architectural panels, deep and mini downlights, precision COBs, high-power outdoor floodlights, street lights, and reliable SMPS drivers.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                With verified micro-enterprise registration with the Ministry of MSME and full GST statutory compliance,
-                we strive to build enduring relationships founded on fair pricing, swift delivery, and consistent product quality.
+                With micro-enterprise classification under Udyam (Ministry of MSME) and regular GST compliance, we are eager to serve electrical contractors, retail shops, interior designers, and project managers with competitive wholesale rates and dependable guarantees.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
                   "GSTIN: 24AGBFS1171R1ZM",
-                  "Udyam Reg: UDYAM-GJ-07-0040753",
-                  "Registered in Dahod, Gujarat",
-                  "Trademark Application Class 9 Filed",
+                  "Udyam: UDYAM-GJ-07-0040753",
+                  "Commencement: 31/08/2026",
+                  "Location: Dahod, Gujarat",
+                  "Class 9 TM App: 7993579",
+                  "Partnership Firm",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2 text-sm text-gray-700">
                     <CheckCircle className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
@@ -126,7 +124,7 @@ export default function AboutPage() {
             <div className="space-y-8">
               {MILESTONES.map((m, idx) => (
                 <div key={idx} className="flex gap-6 relative">
-                  <div className="relative z-10 w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
+                  <div className="relative z-10 min-w-24 px-3 py-2 bg-blue-800 rounded-full flex items-center justify-center text-white font-semibold text-xs text-center shrink-0">
                     {m.year}
                   </div>
                   <div className="bg-gray-50 rounded-xl p-5 flex-1 shadow-sm border border-gray-100">

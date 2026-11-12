@@ -9,17 +9,17 @@ import { initialProducts, initialCategories, initialServices, initialCompanySett
 const STATS = [
   { label: "Product Families", value: "10+" },
   { label: "Commercial & Retail Models", value: "100+" },
-  { label: "Udyam / MSME Registered", value: "Micro" },
-  { label: "Driver Guarantee Available", value: "Up to 27 Mo" },
+  { label: "MSME Classification", value: "Micro Enterprise" },
+  { label: "Commencement Year", value: "Est. 2026" },
 ];
 
 const WHY_CHOOSE = [
-  { icon: Shield, title: "Genuine Quality & Warranty", desc: "Select models backed by up to 27 months driver and PCS replacement guarantee." },
+  { icon: Shield, title: "Genuine Quality & Guarantee", desc: "Select models backed by up to 27 months driver and PCS replacement guarantee." },
   { icon: Lightbulb, title: "Comprehensive Lighting Range", desc: "From slim panels, downlights, and COB spotlights to heavy floodlights and street lights." },
   { icon: Zap, title: "Reliable SMPS & Drivers", desc: "Heavy-duty, waterproof, sleek pencil, and eco LED drivers for every application." },
-  { icon: Award, title: "GST & MSME Compliant", desc: "Registered business (GSTIN: 24AGBFS1171R1ZM) providing 100% genuine GST invoices." },
-  { icon: MessageCircle, title: "Direct Partner Support", desc: "Prompt communication and project quotes directly from Gopalbhai Bhammar and team." },
-  { icon: CheckCircle, title: "Bulk & Trade Pricing", desc: "Competitive wholesale rates for electrical contractors, builders, and retailers." },
+  { icon: Award, title: "GST & MSME Compliant", desc: "Registered business (GSTIN: 24AGBFS1171R1ZM, UDYAM-GJ-07-0040753) with genuine invoices." },
+  { icon: MessageCircle, title: "Direct Partner Support", desc: "Prompt communication directly with partners Bhammar Gopalbhai and Solanki Lokesh Kumar." },
+  { icon: CheckCircle, title: "Direct Wholesale Pricing", desc: "Direct trade rates for electrical contractors, builders, and retailers across Gujarat." },
 ];
 
 export default function HomePage() {
@@ -39,7 +39,7 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-400/30 rounded-full px-4 py-1.5 text-sm text-orange-300 mb-6">
-              <Zap className="w-4 h-4" /> Dahod, Gujarat • LED Lighting & Electrical Solutions
+              <Zap className="w-4 h-4" /> Limdi, Dahod, Gujarat • New Electrical & LED Startup
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Lighting Up Every Space with
@@ -86,20 +86,19 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">About Samarth Electronics Hub</span>
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Startup Profile</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Your Dependable Electrical & LED Lighting Supply Partner
+                Fresh Energy, Reliable Lighting & Transparent Trade
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                <strong>SAMARTH ELECTRONICS HUB</strong> is a Dahod, Gujarat based enterprise led by{" "}
-                <strong>Gopalbhai Rambhai Bhammar</strong> and <strong>Lokeshkumar Rameshbhai Solaki</strong>.
-                We specialize in distributing and supplying high-efficiency LED illumination products and
-                solid-state electrical components across Gujarat and India.
+                <strong>SAMARTH ELECTRONICS HUB</strong> is a forward-looking partnership startup commenced on{" "}
+                <strong>31 August 2026</strong> in Limdi, Dahod District, Gujarat, founded by{" "}
+                <strong>Bhammar Gopalbhai Rambhai</strong> and <strong>Solanki Lokesh Kumar Rameshbhai</strong>.
+                We specialize in distributing and supplying high-efficiency LED illumination fixtures, household electrical
+                goods, and solid-state power drivers.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                From architectural slim panels, decorative colour-tunable downlights, and Grace COBs to industrial
-                floodlights and heavy-duty SMPS drivers, our inventory caters to trade contractors, electrical retailers,
-                and large-scale installation projects.
+                As a newly established micro-enterprise registered under Udyam and regular GST, we are committed to building our market reputation by offering genuine factory-grade products, full GST compliance, reliable driver guarantees, and honest wholesale pricing for trade buyers.
               </p>
               <ul className="space-y-3">
                 {[

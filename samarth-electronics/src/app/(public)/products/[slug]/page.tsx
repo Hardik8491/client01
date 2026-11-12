@@ -31,7 +31,7 @@ export default async function ProductDetailPage({ params }: Props) {
     .filter((p) => p.categoryId === product.categoryId && p.id !== product.id && p.status === "PUBLISHED")
     .slice(0, 3);
 
-  const whatsappMessage = `Hello Samarth Electronics, I am interested in *${product.name}* (SKU: ${product.sku}). Please share pricing and availability.`;
+  const whatsappMessage = `Hello Samarth Electronics Hub, I am interested in *${product.name}* (SKU: ${product.sku}). Please share pricing and availability.`;
 
   return (
     <div className="bg-gray-50 min-h-screen">

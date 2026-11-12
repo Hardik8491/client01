@@ -40,6 +40,7 @@ export interface Product {
   status: ProductStatus;
   featured: boolean;
   sortOrder: number;
+  supplierPrice?: string | null;
   images: ProductImage[];
   createdAt: Date | string;
   updatedAt: Date | string;
@@ -90,6 +91,12 @@ export interface CompanySettings {
   pincode: string;
   country: string;
   gstNumber?: string | null;
+  udyamNumber?: string | null;
+  trademarkNumber?: string | null;
+  secondPartnerName?: string | null;
+  secondPartnerPhone?: string | null;
+  alternateEmail?: string | null;
+  commencementDate?: string | null;
   workingHours: string;
   aboutSummary?: string | null;
   googleMapsUrl?: string | null;

@@ -119,11 +119,12 @@ function InquiryForm() {
 }
 
 const CONTACT_INFO = [
-  { icon: Phone, label: "Main Contact (Gopalbhai Bhammar)", value: "+91 96242 34603", href: "tel:+919624234603" },
-  { icon: Phone, label: "Partner Contact (Lokeshkumar Solaki)", value: "+91 93130 62650", href: "tel:+919313062650" },
+  { icon: Phone, label: "Partner 1: Bhammar Gopalbhai Rambhai", value: "+91 96242 34603", href: "tel:+919624234603" },
+  { icon: Phone, label: "Partner 2: Solanki Lokesh Kumar Rameshbhai", value: "+91 93130 62650", href: "tel:+919313062650" },
   { icon: MessageCircle, label: "WhatsApp Desk", value: "+91 96242 34603", href: "https://wa.me/919624234603" },
-  { icon: Mail, label: "Email Address", value: "smarthelectronicshub9@gmail.com", href: "mailto:smarthelectronicshub9@gmail.com" },
-  { icon: MapPin, label: "Principal Address (GST)", value: "Ambli Faliyu, Karamba Road, Jhalod, Limdi, Dahod, Gujarat — 389180" },
+  { icon: Mail, label: "Business Email (Shared)", value: "smarthelectronicshub9@gmail.com", href: "mailto:smarthelectronicshub9@gmail.com" },
+  { icon: Mail, label: "Registered Email (Udyam)", value: "bhammargopal3@gmail.com", href: "mailto:bhammargopal3@gmail.com" },
+  { icon: MapPin, label: "Registered Principal Place of Business", value: "Ambli Faliyu, Karamba Road, Jhalod, Limdi / Limadi, Dahod, Gujarat — 389180" },
   { icon: Clock, label: "Working Hours", value: "Monday – Saturday: 10:00 AM – 7:00 PM IST" },
 ];
 
