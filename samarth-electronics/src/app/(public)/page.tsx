@@ -308,9 +308,10 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-orange-600 font-bold px-8 py-3.5 rounded-xl hover:bg-orange-50 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white text-orange-600 font-bold px-8 py-3.5 rounded-xl hover:bg-orange-50 transition-colors shadow-sm"
+              style={{ color: "#ea580c" }}
             >
-              <Phone className="w-5 h-5" /> Request a Quote
+              <Phone className="w-5 h-5 text-orange-600" style={{ color: "#ea580c" }} /> Request a Quote
             </Link>
             <a
               href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\+/g, "")}?text=Hello%20Samarth%20Electronics%20Hub%2C%20I%20want%20to%20inquire%20about%20your%20products.`}

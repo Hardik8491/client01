@@ -44,8 +44,9 @@ function InquiryForm() {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+          style={{ color: "#ffffff" }}
         >
-          <MessageCircle className="w-5 h-5" /> Follow Up on WhatsApp
+          <MessageCircle className="w-5 h-5 text-white" /> Follow Up on WhatsApp
         </a>
       </div>
     );
@@ -183,9 +184,10 @@ export default function ContactPage() {
                   href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\+/g, "")}?text=Hello%20Samarth%20Electronics%20Hub%2C%20I%20have%20an%20inquiry%20regarding%20LED%20lighting.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-white text-green-700 font-bold px-5 py-2.5 rounded-xl hover:bg-green-50 transition-colors"
+                  className="inline-flex items-center gap-2 bg-white text-emerald-800 font-bold px-5 py-2.5 rounded-xl hover:bg-emerald-50 transition-colors shadow-sm"
+                  style={{ color: "#065f46" }}
                 >
-                  <MessageCircle className="w-5 h-5" /> Chat on WhatsApp
+                  <MessageCircle className="w-5 h-5 text-emerald-700" style={{ color: "#047857" }} /> Chat on WhatsApp
                 </a>
               </div>
             </div>
