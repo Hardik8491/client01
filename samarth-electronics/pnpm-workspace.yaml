@@ -1,6 +1,5 @@
-onlyBuiltDependencies:
-  - "@parcel/watcher"
-  - "@prisma/client"
-  - "@prisma/engines"
-  - "prisma"
-  - "sharp"
+allowBuilds:
+  '@parcel/watcher': false
+  '@prisma/client': false
+  '@prisma/engines': false
+  prisma: false
