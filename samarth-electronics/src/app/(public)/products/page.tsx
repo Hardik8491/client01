@@ -45,13 +45,15 @@ export default async function ProductsPage({ searchParams }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Search & Filter */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <form className="relative flex-1" method="GET">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <form className="relative flex-1 flex items-center" method="GET">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-gray-400 z-10">
+                <Search className="w-5 h-5 text-gray-400" />
+              </span>
               <input
                 name="search"
                 defaultValue={searchQuery}
                 placeholder="Search by product name, SKU..."
-                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
               />
               {categoryFilter && <input type="hidden" name="category" value={categoryFilter} />}
             </form>

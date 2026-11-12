@@ -68,7 +68,8 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             href="/contact"
-            className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
+            className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors inline-block"
+            style={{ color: "#ffffff" }}
           >
             Get a Quote
           </Link>
@@ -109,6 +110,7 @@ export default function Navbar() {
                 href="/contact"
                 onClick={() => setOpen(false)}
                 className="block mt-2 bg-orange-500 text-white text-center py-2.5 rounded-lg font-semibold text-sm"
+                style={{ color: "#ffffff" }}
               >
                 Get a Quote
               </Link>
