@@ -7,19 +7,19 @@ import {
 import { initialProducts, initialCategories, initialServices, initialCompanySettings } from "@/lib/seed-data";
 
 const STATS = [
-  { label: "Product Families", value: "10+" },
-  { label: "Commercial & Retail Models", value: "100+" },
-  { label: "MSME Classification", value: "Micro Enterprise" },
-  { label: "Commencement Year", value: "Est. 2026" },
+  { label: "Product Lines", value: "30+" },
+  { label: "Wattage Options", value: "3W – 600W" },
+  { label: "Power Ratings", value: "2A – 33A" },
+  { label: "Driver Warranty", value: "Up to 27 Mo" },
 ];
 
 const WHY_CHOOSE = [
-  { icon: Shield, title: "Genuine Quality & Guarantee", desc: "Select models backed by up to 27 months driver and PCS replacement guarantee." },
-  { icon: Lightbulb, title: "Comprehensive Lighting Range", desc: "From slim panels, downlights, and COB spotlights to heavy floodlights and street lights." },
-  { icon: Zap, title: "Reliable SMPS & Drivers", desc: "Heavy-duty, waterproof, sleek pencil, and eco LED drivers for every application." },
-  { icon: Award, title: "GST & MSME Compliant", desc: "Registered business (GSTIN: 24AGBFS1171R1ZM, UDYAM-GJ-07-0040753) with genuine invoices." },
-  { icon: MessageCircle, title: "Direct Partner Support", desc: "Prompt communication directly with partners Bhammar Gopalbhai and Solanki Lokesh Kumar." },
-  { icon: CheckCircle, title: "Direct Wholesale Pricing", desc: "Direct trade rates for electrical contractors, builders, and retailers across Gujarat." },
+  { icon: Shield, title: "Tested Reliability", desc: "Select product families supported by up to 27 months driver and replacement guarantee." },
+  { icon: Lightbulb, title: "Broad Catalogue", desc: "Covers architectural slim panels, downlights, COBs, high-power floodlights, and street lights." },
+  { icon: Zap, title: "Regulated Drivers", desc: "Heavy-duty metal, waterproof IP67, sleek pencil, and eco SMPS drivers built for continuous use." },
+  { icon: Award, title: "Transparent Billing", desc: "Fully registered enterprise supplying official commercial tax invoices on all trade orders." },
+  { icon: MessageCircle, title: "Fast Trade Inquiries", desc: "Direct response on WhatsApp for quick bill of materials estimation and volume discounts." },
+  { icon: CheckCircle, title: "Wholesale Delivery", desc: "Competitive trade pricing for electrical retailers, contractors, and project builders." },
 ];
 
 export default function HomePage() {
@@ -39,7 +39,7 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-400/30 rounded-full px-4 py-1.5 text-sm text-orange-300 mb-6">
-              <Zap className="w-4 h-4" /> Limdi, Dahod, Gujarat • New Electrical & LED Startup
+              <Zap className="w-4 h-4" /> Limdi, Dahod, Gujarat • Commercial & Architectural LED Solutions
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Lighting Up Every Space with
@@ -86,26 +86,22 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Startup Profile</span>
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Commercial & Residential Lighting</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Fresh Energy, Reliable Lighting & Transparent Trade
+                Engineered for High Efficacy, Longevity & Value
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                <strong>SAMARTH ELECTRONICS HUB</strong> is a forward-looking partnership startup commenced on{" "}
-                <strong>31 August 2026</strong> in Limdi, Dahod District, Gujarat, founded by{" "}
-                <strong>Bhammar Gopalbhai Rambhai</strong> and <strong>Solanki Lokesh Kumar Rameshbhai</strong>.
-                We specialize in distributing and supplying high-efficiency LED illumination fixtures, household electrical
-                goods, and solid-state power drivers.
+                We supply an extensive range of solid-state LED fixtures and power drivers designed for architects, electrical contractors, interior designers, and commercial builders.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                As a newly established micro-enterprise registered under Udyam and regular GST, we are committed to building our market reputation by offering genuine factory-grade products, full GST compliance, reliable driver guarantees, and honest wholesale pricing for trade buyers.
+                From precision anti-glare downlights and colour-tunable slim panels to ruggedized 600W outdoor floodlights and IP67 waterproof drivers, our products deliver consistent lumens and proven thermal reliability.
               </p>
               <ul className="space-y-3">
                 {[
-                  "Comprehensive portfolio: Panels, Downlights, COB, Flood & Street Lights",
-                  "Heavy-duty, waterproof & slim pencil SMPS drivers (2A to 33A)",
-                  "Official GST registered (24AGBFS1171R1ZM) & Udyam MSME certified",
-                  "Direct trade consultation & wholesale quotations via WhatsApp",
+                  "Architectural fixtures: Panels, Downlights, COBs, and Linear Track Lights",
+                  "Heavy-duty outdoor series: IP-rated Floodlights, High-Bays, and Streetlights",
+                  "Regulated power electronics: Eco, Heavy, Waterproof, and Slim Pencil SMPS",
+                  "Direct wholesale quotations and immediate dispatch assistance",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-gray-700 text-sm">
                     <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />

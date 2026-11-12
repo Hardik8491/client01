@@ -1,107 +1,219 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle, Award, Users, Factory, ArrowRight, MessageCircle } from "lucide-react";
+import { CheckCircle, Award, Users, Factory, ArrowRight, MessageCircle, Phone, Mail, MapPin, FileText, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import { initialCompanySettings } from "@/lib/seed-data";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about SAMARTH ELECTRONICS HUB — Dahod, Gujarat based partnership startup dealing in LED lighting, electrical goods, and drivers, led by Gopalbhai Bhammar and Lokeshkumar Solanki.",
+  description: "Learn about SAMARTH ELECTRONICS HUB — Dahod, Gujarat partnership enterprise dealing in LED lighting, electrical products, and drivers. Meet our founders Gopalbhai Bhammar and Lokeshkumar Solanki.",
 };
 
+const PARTNERS = [
+  {
+    name: "Bhammar Gopalbhai Rambhai",
+    role: "Managing Partner",
+    phone: "+91 96242 34603",
+    email: "bhammargopal3@gmail.com",
+    focus: "Technical oversight, product catalogue selection, OEM supplier relations, and key trade accounts.",
+    bio: "Driving the operational and product vision for Samarth Electronics Hub. Gopalbhai oversees quality assurance, driver compatibility testing, and wholesale dispatch operations.",
+  },
+  {
+    name: "Solanki Lokesh Kumar Rameshbhai",
+    role: "Partner",
+    officialRecordNote: "Recorded as SOLAKI LOKESHKUMAR RAMESHBHAI in GST records",
+    phone: "+91 93130 62650",
+    email: "smarthelectronicshub9@gmail.com",
+    focus: "Client partnerships, regional trade distribution, customer inquiries, and commercial logistics.",
+    bio: "Focusing on market expansion, trade relationships with electrical retailers and contractors across Gujarat, and streamlined order fulfillment.",
+  },
+];
+
 const MILESTONES = [
-  { year: "31 Aug 2026", event: "Business commencement and partnership registration of SAMARTH ELECTRONICS HUB" },
-  { year: "11 Sep 2026", event: "MSME Udyam Micro Enterprise registration (UDYAM-GJ-07-0040753) for manufacturing & electrical trade" },
-  { year: "12 Sep 2026", event: "Trademark application filed (App No. 7993579) under Class 9" },
-  { year: "07 Oct 2026", event: "Government of India regular GST registration approved (GSTIN: 24AGBFS1171R1ZM)" },
-  { year: "Current", event: "Launch of trade catalogue spanning LED panels, downlights, COBs, floodlights, and SMPS drivers" },
+  {
+    date: "31 August 2026",
+    title: "Commencement of Business",
+    detail: "Official inception and operational commencement of SAMARTH ELECTRONICS HUB in Limdi, Dahod District, Gujarat.",
+  },
+  {
+    date: "11 September 2026",
+    title: "MSME Udyam Micro Enterprise Registration",
+    detail: "Formally registered under Udyam (UDYAM-GJ-07-0040753) under Major Activity 'Manufacturing' and NIC 47594 for retail electrical & lighting goods.",
+  },
+  {
+    date: "12 September 2026",
+    title: "Trademark Application Class 9",
+    detail: "Computer Generated TM application (App No. 7993579) filed for brand protection of 'SAMARTH ELECTRONICS HUB' across Class 9 apparatus.",
+  },
+  {
+    date: "07 October 2026",
+    title: "Regular GST Registration Approved",
+    detail: "Form GST REG-06 issued by Government of India approving regular partnership registration under GSTIN 24AGBFS1171R1ZM.",
+  },
+  {
+    date: "Present",
+    title: "Catalogue & Wholesale Supply",
+    detail: "Active distribution of 32+ product families spanning LED panels, downlights, COBs, streetlights, floodlights, and SMPS power supplies.",
+  },
 ];
 
 const VALUES = [
-  { icon: Award, title: "Product Reliability", desc: "Offering industry-backed products with up to 27 months driver and PC-to-PC guarantees." },
-  { icon: Users, title: "Long-term Trade Partnerships", desc: "Serving retail partners, electrical contractors, and commercial builders with honest trade terms." },
-  { icon: Factory, title: "Wide Supply Network", desc: "Panels, COBs, streetlights, floodlights, and SMPS power supplies readily available for distribution." },
+  {
+    icon: ShieldCheck,
+    title: "Genuine Guarantees",
+    desc: "We stand behind our products with up to 27 months driver and PC replacement coverage on eligible series.",
+  },
+  {
+    icon: Users,
+    title: "Direct Trade Relationship",
+    desc: "Direct communication with the business partners — ensuring fast quotation, transparent pricing, and zero middleman friction.",
+  },
+  {
+    icon: Factory,
+    title: "Wide Product Availability",
+    desc: "Comprehensive selection from residential 3W spot fixtures to 600W industrial floodlights and 33A waterproof SMPS units.",
+  },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-950 to-blue-800 text-white py-20">
+      {/* ── HEADER ───────────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">About Us</span>
+          <div className="max-w-3xl">
+            <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">Company Profile</span>
             <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-5">
-              Illuminating Spaces Across Gujarat & India
+              About SAMARTH ELECTRONICS HUB
             </h1>
             <p className="text-blue-100 text-lg leading-relaxed">
-              We are <strong>SAMARTH ELECTRONICS HUB</strong> — an established electrical and LED lighting
-              firm headquartered in Limdi, Dahod District, Gujarat, dedicated to delivering dependable lighting
-              fixtures and solid-state drivers.
+              Based in Limdi, Dahod District, Gujarat, SAMARTH ELECTRONICS HUB is dedicated to providing
+              dependable LED illumination and solid-state electrical drivers for homes, commercial establishments,
+              and industrial projects.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Company Story */}
+      {/* ── COMPANY BACKGROUND & STORY ────────────────────────────────────────── */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <div className="rounded-2xl overflow-hidden shadow-xl aspect-square relative bg-gray-100">
+            <div>
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Our Enterprise</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
+                Illumination Engineering & Quality Electrical Distribution
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                <strong>SAMARTH ELECTRONICS HUB</strong> was established on <strong>31 August 2026</strong> as a partnership firm in Dahod district, Gujarat. Built on the core principle of delivering reliable lighting hardware backed by manufacturer warranties, we bridge the gap between quality manufacturing and on-ground electrical project needs.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Our portfolio spans architectural slim panels, deep recessed and mini downlights, high-CRI COB spotlights, heavy-duty industrial floodlights, public street luminaires, and continuous-duty SMPS power supplies (2A to 33.3A). Every order is supplied with genuine GST tax invoices and tested component standards.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
+                {[
+                  "Firm Type: Partnership",
+                  "Major Activity: Manufacturing & Trade",
+                  "Location: Limdi, Dahod, Gujarat",
+                  "Class 9 TM Application: 7993579",
+                  "Government GST Approved",
+                  "Ministry of MSME Registered",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-600 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden shadow-xl aspect-square relative bg-gray-100 border border-gray-200">
               <Image
                 src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=900&q=80"
-                alt="Samarth Electronics Hub Leadership"
+                alt="Samarth Electronics Hub Lighting Solutions"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <div>
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Startup Profile</span>
-              <h2 className="text-3xl font-bold text-gray-900 mt-2 mb-6">
-                Partnership Built on Quality, Compliance & Value
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-5">
-                <strong>SAMARTH ELECTRONICS HUB</strong> is a newly established partnership startup officially commenced on{" "}
-                <strong>31 August 2026</strong>. Headquartered in Limdi / Limadi, Dahod District, Gujarat, the enterprise is authorized and managed by partners{" "}
-                <strong>Bhammar Gopalbhai Rambhai</strong> and <strong>Solanki Lokesh Kumar Rameshbhai</strong> (recorded as <em>SOLAKI LOKESHKUMAR RAMESHBHAI</em> in GST records).
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-5">
-                Our core focus is the supply and distribution of modern LED illumination systems and electrical goods — spanning slim architectural panels, deep and mini downlights, precision COBs, high-power outdoor floodlights, street lights, and reliable SMPS drivers.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                With micro-enterprise classification under Udyam (Ministry of MSME) and regular GST compliance, we are eager to serve electrical contractors, retail shops, interior designers, and project managers with competitive wholesale rates and dependable guarantees.
-              </p>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  "GSTIN: 24AGBFS1171R1ZM",
-                  "Udyam: UDYAM-GJ-07-0040753",
-                  "Commencement: 31/08/2026",
-                  "Location: Dahod, Gujarat",
-                  "Class 9 TM App: 7993579",
-                  "Partnership Firm",
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-2 text-sm text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-20 bg-gray-50">
+      {/* ── FOUNDERS & PARTNERS SECTION ────────────────────────────────────────── */}
+      <section className="py-20 bg-gray-50 border-y border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Leadership</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Meet the Partners</h2>
+            <p className="text-gray-600 text-sm mt-3">
+              Direct access to our business owners for bulk quotations, trade pricing, and project support.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {PARTNERS.map((partner) => (
+              <div
+                key={partner.name}
+                className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">{partner.name}</h3>
+                      <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-1">
+                        {partner.role}
+                      </span>
+                      {partner.officialRecordNote && (
+                        <p className="text-xs text-gray-400 mt-1 italic">{partner.officialRecordNote}</p>
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{partner.bio}</p>
+
+                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-100 mb-6">
+                    <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-1">
+                      Key Responsibilities
+                    </span>
+                    <p className="text-sm text-gray-700">{partner.focus}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2 pt-4 border-t border-gray-100 text-sm">
+                  <a
+                    href={`tel:${partner.phone.replace(/\s+/g, "")}`}
+                    className="flex items-center gap-2 text-gray-700 hover:text-blue-700 transition-colors"
+                  >
+                    <Phone className="w-4 h-4 text-orange-500 shrink-0" />
+                    <span>{partner.phone}</span>
+                  </a>
+                  <a
+                    href={`mailto:${partner.email}`}
+                    className="flex items-center gap-2 text-gray-700 hover:text-blue-700 transition-colors"
+                  >
+                    <Mail className="w-4 h-4 text-orange-500 shrink-0" />
+                    <span>{partner.email}</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CORE PRINCIPLES ───────────────────────────────────────────────────── */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">Our Core Principles</h2>
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Commitment</span>
+            <h2 className="text-3xl font-bold text-gray-900 mt-2">What We Stand For</h2>
           </div>
           <div className="grid sm:grid-cols-3 gap-8">
             {VALUES.map((v) => (
-              <div key={v.title} className="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100">
-                <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <div key={v.title} className="bg-gray-50 rounded-2xl p-8 text-center border border-gray-100">
+                <div className="bg-blue-100 w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5">
                   <v.icon className="w-7 h-7 text-blue-700" />
                 </div>
                 <h3 className="font-bold text-gray-900 text-lg mb-3">{v.title}</h3>
@@ -112,37 +224,69 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-20 bg-white">
+      {/* ── OFFICIAL REGISTRATIONS & TIMELINE ─────────────────────────────────── */}
+      <section className="py-20 bg-gray-50 border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Enterprise Journey</span>
-            <h2 className="text-3xl font-bold text-gray-900 mt-2">Milestones & Certifications</h2>
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Verification & Compliance</span>
+            <h2 className="text-3xl font-bold text-gray-900 mt-2">Official Registrations</h2>
+            <p className="text-gray-500 text-sm mt-2">
+              Every detail verified against our statutory government certificates and filings.
+            </p>
           </div>
-          <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-100" />
-            <div className="space-y-8">
-              {MILESTONES.map((m, idx) => (
-                <div key={idx} className="flex gap-6 relative">
-                  <div className="relative z-10 min-w-24 px-3 py-2 bg-blue-800 rounded-full flex items-center justify-center text-white font-semibold text-xs text-center shrink-0">
-                    {m.year}
+
+          <div className="space-y-6">
+            {MILESTONES.map((m) => (
+              <div
+                key={m.title}
+                className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 flex flex-col sm:flex-row gap-5 items-start sm:items-center justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <FileText className="w-4 h-4 text-orange-500" />
+                    <h3 className="font-bold text-gray-900 text-base">{m.title}</h3>
                   </div>
-                  <div className="bg-gray-50 rounded-xl p-5 flex-1 shadow-sm border border-gray-100">
-                    <p className="text-gray-700 font-medium">{m.event}</p>
-                  </div>
+                  <p className="text-gray-600 text-sm">{m.detail}</p>
                 </div>
-              ))}
+                <span className="shrink-0 bg-blue-50 border border-blue-200 text-blue-800 text-xs font-semibold px-3 py-1.5 rounded-lg">
+                  {m.date}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+            <h4 className="font-semibold text-gray-900 mb-4 text-sm uppercase tracking-wider text-center">
+              Official Registered Details
+            </h4>
+            <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-600">
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <span className="font-bold block text-gray-800 mb-1">GST Registration:</span>
+                GSTIN: 24AGBFS1171R1ZM • Regular • Issue Date: 07/10/2026
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <span className="font-bold block text-gray-800 mb-1">MSME Udyam:</span>
+                UDYAM-GJ-07-0040753 • Micro Enterprise • DIC: Dahod
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <span className="font-bold block text-gray-800 mb-1">Principal Place of Business:</span>
+                Ambli Faliyu, Karamba Road, Jhalod, Limdi, Dahod, Gujarat — 389180
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg">
+                <span className="font-bold block text-gray-800 mb-1">Trademark Search:</span>
+                Application No: 7993579 • Class 9 • Status: Send To Vienna Codification
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── CALL TO ACTION ────────────────────────────────────────────────────── */}
       <section className="py-16 bg-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Discuss Your Electrical & Lighting Project</h2>
+          <h2 className="text-3xl font-bold mb-4">Partner with Samarth Electronics Hub</h2>
           <p className="text-blue-200 text-lg mb-8 max-w-xl mx-auto">
-            Connect with Gopalbhai Bhammar or our sales desk for wholesale quotes, bulk shipments, and catalog inquiries.
+            Connect directly with partners Gopalbhai Bhammar and Lokeshkumar Solanki for wholesale rates, bulk orders, and trade quotes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -157,7 +301,7 @@ export default function AboutPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-3.5 rounded-xl transition-colors"
             >
-              <MessageCircle className="w-5 h-5" /> WhatsApp Us ({initialCompanySettings.phone})
+              <MessageCircle className="w-5 h-5" /> WhatsApp Desk ({initialCompanySettings.phone})
             </a>
           </div>
         </div>

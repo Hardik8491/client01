@@ -20,8 +20,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-400">
-              LED lighting and electrical enterprise led by{" "}
-              <span className="text-white">Gopalbhai Bhammar</span> and <span className="text-white">Lokeshkumar Solaki</span>. Based in Limdi, Dahod, Gujarat, delivering high-efficiency panels, COBs, floodlights, and SMPS power supplies across India.
+              Your dependable source for energy-efficient commercial LED lighting, architectural fixtures, and heavy-duty SMPS drivers.
             </p>
             <a
               href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\+/g, "")}?text=Hello%20Samarth%20Electronics%20Hub%2C%20I%20have%20a%20business%20inquiry.`}
@@ -96,7 +95,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
           <p>© {new Date().getFullYear()} {initialCompanySettings.companyName}. All rights reserved.</p>
-          <p>GSTIN: {initialCompanySettings.gstNumber} | Udyam: UDYAM-GJ-07-0040753 | Made in India 🇮🇳</p>
+          <p>Dahod, Gujarat • Made in India 🇮🇳</p>
         </div>
       </div>
     </footer>
