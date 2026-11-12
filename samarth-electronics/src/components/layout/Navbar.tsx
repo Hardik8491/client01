@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Zap, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { initialCompanySettings } from "@/lib/seed-data";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -23,10 +24,10 @@ export default function Navbar() {
       {/* Top bar */}
       <div className="bg-blue-900 text-white text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <span>🏭 B2B Electronics Manufacturing — Rajkot, Gujarat</span>
-          <a href="tel:+919876543210" className="flex items-center gap-1 hover:text-orange-300 transition">
+          <span>💡 LED Lighting & Electrical Solutions — Dahod, Gujarat</span>
+          <a href={`tel:${initialCompanySettings.phone}`} className="flex items-center gap-1 hover:text-orange-300 transition">
             <Phone className="w-3 h-3" />
-            +91 98765 43210
+            {initialCompanySettings.phone}
           </a>
         </div>
       </div>
@@ -40,7 +41,7 @@ export default function Navbar() {
           </div>
           <div>
             <span className="font-bold text-blue-900 text-lg leading-none block">Samarth</span>
-            <span className="text-orange-500 text-xs font-semibold tracking-wide">ELECTRONICS</span>
+            <span className="text-orange-500 text-xs font-semibold tracking-wide uppercase">ELECTRONICS HUB</span>
           </div>
         </Link>
 
@@ -118,4 +119,3 @@ export default function Navbar() {
     </header>
   );
 }
-

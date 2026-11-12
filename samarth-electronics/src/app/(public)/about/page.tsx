@@ -2,25 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle, Award, Users, Factory, ArrowRight, MessageCircle } from "lucide-react";
 import type { Metadata } from "next";
+import { initialCompanySettings } from "@/lib/seed-data";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Samarth Electronics — Rajkot's premier B2B electronics manufacturing company led by Gopal Bhammar.",
+  description: "Learn about Samarth Electronics Hub — Gujarat's reliable LED lighting and electrical products enterprise led by Gopalbhai Bhammar and Lokeshkumar Solaki.",
 };
 
 const MILESTONES = [
-  { year: "2012", event: "Founded by Gopal Bhammar in Rajkot, Gujarat" },
-  { year: "2015", event: "Expanded to 5,000 sq.ft. dedicated SMT facility" },
-  { year: "2018", event: "Crossed ₹1 Crore monthly production milestone" },
-  { year: "2020", event: "Launched IoT Gateway product line for Industry 4.0" },
-  { year: "2022", event: "250+ B2B clients. 50,000+ units shipped per year" },
-  { year: "2024", event: "New 10,000 sq.ft. facility with automated AOI inspection" },
+  { year: "2026", event: "Official Partnership incorporation of SAMARTH ELECTRONICS HUB in Dahod, Gujarat" },
+  { year: "2026", event: "Udyam MSME Micro-Enterprise Registration (UDYAM-GJ-07-0040753) for manufacturing & electrical trade" },
+  { year: "2026", event: "GST Registration Form GST REG-06 approved under GSTIN 24AGBFS1171R1ZM" },
+  { year: "2026", event: "Applied for Trademark registration for SAMARTH ELECTRONICS HUB under Class 9" },
+  { year: "2026", event: "Rolled out comprehensive 100+ product OEM lighting catalogue & SMPS driver distribution" },
 ];
 
 const VALUES = [
-  { icon: Award, title: "Quality First", desc: "IPC-A-610 Class 2/3 workmanship. Zero-defect culture backed by systematic burn-in testing." },
-  { icon: Users, title: "Client Partnership", desc: "We treat every B2B client as a long-term partner, not a one-time transaction." },
-  { icon: Factory, title: "In-House Expertise", desc: "Design, firmware, PCB layout, assembly, testing — all under one roof in Rajkot." },
+  { icon: Award, title: "Product Reliability", desc: "Offering industry-backed products with up to 27 months driver and PC-to-PC guarantees." },
+  { icon: Users, title: "Long-term Trade Partnerships", desc: "Serving retail partners, electrical contractors, and commercial builders with honest trade terms." },
+  { icon: Factory, title: "Wide Supply Network", desc: "Panels, COBs, streetlights, floodlights, and SMPS power supplies readily available for distribution." },
 ];
 
 export default function AboutPage() {
@@ -32,11 +32,12 @@ export default function AboutPage() {
           <div className="max-w-2xl">
             <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">About Us</span>
             <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-5">
-              Powering India&apos;s Industrial Revolution
+              Illuminating Spaces Across Gujarat & India
             </h1>
             <p className="text-blue-100 text-lg leading-relaxed">
-              We are Samarth Electronics — a Rajkot-based B2B electronics manufacturing company engineering
-              industrial-grade controllers, power electronics, and IoT hardware for manufacturers across India.
+              We are <strong>SAMARTH ELECTRONICS HUB</strong> — an established electrical and LED lighting
+              firm headquartered in Limdi, Dahod District, Gujarat, dedicated to delivering dependable lighting
+              fixtures and solid-state drivers.
             </p>
           </div>
         </div>
@@ -46,41 +47,41 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <div className="rounded-2xl overflow-hidden shadow-xl aspect-square relative">
+            <div className="rounded-2xl overflow-hidden shadow-xl aspect-square relative bg-gray-100">
               <Image
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80"
-                alt="Gopal Bhammar - Founder, Samarth Electronics"
+                src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=900&q=80"
+                alt="Samarth Electronics Hub Leadership"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
             <div>
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Our Founder</span>
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Enterprise Leadership</span>
               <h2 className="text-3xl font-bold text-gray-900 mt-2 mb-6">
-                Gopal Bhammar — Engineer, Entrepreneur, Builder
+                Partnership Dedicated to Quality & Transparency
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Gopal Bhammar started Samarth Electronics in 2012 with a singular vision — to build
-                electronics that work reliably in India&apos;s harsh industrial environments. Coming from
-                a background in power electronics and embedded systems, Gopal brought engineering
-                discipline and manufacturing precision to every product.
+                SAMARTH ELECTRONICS HUB is constituted as a partnership enterprise authorized and actively managed by{" "}
+                <strong>Bhammar Gopalbhai Rambhai</strong> and <strong>Solaki Lokeshkumar Rameshbhai</strong>.
+                Based out of Dahod district, Gujarat, our vision is to simplify access to premium LED illumination
+                technologies for builders, electrical contractors, and retail shops.
               </p>
               <p className="text-gray-600 leading-relaxed mb-5">
-                What began as a small assembly unit has grown into a 10,000 sq.ft. manufacturing facility
-                serving 250+ B2B clients — from automation panel makers and OEM product companies to
-                renewable energy system integrators and textile machinery manufacturers.
+                Our portfolio spans architectural slim panels, deep and mini downlights, precision COBs, heavy-duty
+                floodlights, streetlights, and robust SMPS power supplies. Every customer transaction is backed by
+                genuine GST invoices and transparent warranty terms.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                Today, Gopal personally oversees quality, client partnerships, and new product engineering —
-                ensuring every client receives the same precision and care that built Samarth&apos;s reputation.
+                With verified micro-enterprise registration with the Ministry of MSME and full GST statutory compliance,
+                we strive to build enduring relationships founded on fair pricing, swift delivery, and consistent product quality.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  "12+ years in industrial electronics",
-                  "Expertise in SMPS & power electronics",
-                  "IoT & embedded systems specialist",
-                  "Active member of GIDC Electronics Industry",
+                  "GSTIN: 24AGBFS1171R1ZM",
+                  "Udyam Reg: UDYAM-GJ-07-0040753",
+                  "Registered in Dahod, Gujarat",
+                  "Trademark Application Class 9 Filed",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2 text-sm text-gray-700">
                     <CheckCircle className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
@@ -97,7 +98,7 @@ export default function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">Our Core Values</h2>
+            <h2 className="text-3xl font-bold text-gray-900">Our Core Principles</h2>
           </div>
           <div className="grid sm:grid-cols-3 gap-8">
             {VALUES.map((v) => (
@@ -117,14 +118,14 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Our Journey</span>
-            <h2 className="text-3xl font-bold text-gray-900 mt-2">12 Years of Growth</h2>
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Enterprise Journey</span>
+            <h2 className="text-3xl font-bold text-gray-900 mt-2">Milestones & Certifications</h2>
           </div>
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-100" />
             <div className="space-y-8">
-              {MILESTONES.map((m) => (
-                <div key={m.year} className="flex gap-6 relative">
+              {MILESTONES.map((m, idx) => (
+                <div key={idx} className="flex gap-6 relative">
                   <div className="relative z-10 w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
                     {m.year}
                   </div>
@@ -141,24 +142,24 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-16 bg-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Partner With Us</h2>
+          <h2 className="text-3xl font-bold mb-4">Discuss Your Electrical & Lighting Project</h2>
           <p className="text-blue-200 text-lg mb-8 max-w-xl mx-auto">
-            Join 250+ manufacturers who trust Samarth Electronics for precision electronics manufacturing.
+            Connect with Gopalbhai Bhammar or our sales desk for wholesale quotes, bulk shipments, and catalog inquiries.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-xl transition-colors"
             >
-              Start a Conversation <ArrowRight className="w-5 h-5" />
+              Contact Us <ArrowRight className="w-5 h-5" />
             </Link>
             <a
-              href="https://wa.me/919876543210"
+              href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\+/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-3.5 rounded-xl transition-colors"
             >
-              <MessageCircle className="w-5 h-5" /> WhatsApp Gopal
+              <MessageCircle className="w-5 h-5" /> WhatsApp Us ({initialCompanySettings.phone})
             </a>
           </div>
         </div>
@@ -166,4 +167,3 @@ export default function AboutPage() {
     </>
   );
 }
-

@@ -1,25 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowRight, Shield, Cpu, Zap, Users, Award, Factory,
-  CheckCircle, Phone, MessageCircle, ChevronRight
+  ArrowRight, Shield, Zap, Award,
+  CheckCircle, Phone, MessageCircle, ChevronRight, Lightbulb
 } from "lucide-react";
-import { initialProducts, initialCategories, initialServices } from "@/lib/seed-data";
+import { initialProducts, initialCategories, initialServices, initialCompanySettings } from "@/lib/seed-data";
 
 const STATS = [
-  { label: "Years of Experience", value: "12+" },
-  { label: "Products Manufactured", value: "500+" },
-  { label: "B2B Clients Served", value: "250+" },
-  { label: "Units Shipped / Year", value: "50K+" },
+  { label: "Product Families", value: "10+" },
+  { label: "Commercial & Retail Models", value: "100+" },
+  { label: "Udyam / MSME Registered", value: "Micro" },
+  { label: "Driver Guarantee Available", value: "Up to 27 Mo" },
 ];
 
 const WHY_CHOOSE = [
-  { icon: Shield, title: "Proven Reliability", desc: "Every board undergoes 100% testing and 48-hour burn-in validation before dispatch." },
-  { icon: Cpu, title: "Deep Technical Expertise", desc: "In-house design, firmware, and manufacturing under one roof for faster iterations." },
-  { icon: Zap, title: "Rapid Turnaround", desc: "Prototypes in 10–14 days. Volume orders dispatched on schedule, every time." },
-  { icon: Users, title: "Dedicated Account Manager", desc: "Direct communication with Gopal Bhammar for key account partnerships." },
-  { icon: Award, title: "Quality Certified", desc: "IPC-A-610 Class 2/3 workmanship. Conformal coating and RoHS-compliant processes." },
-  { icon: Factory, title: "Scalable Volumes", desc: "From 50-unit prototypes to 50,000-unit production runs — we scale with you." },
+  { icon: Shield, title: "Genuine Quality & Warranty", desc: "Select models backed by up to 27 months driver and PCS replacement guarantee." },
+  { icon: Lightbulb, title: "Comprehensive Lighting Range", desc: "From slim panels, downlights, and COB spotlights to heavy floodlights and street lights." },
+  { icon: Zap, title: "Reliable SMPS & Drivers", desc: "Heavy-duty, waterproof, sleek pencil, and eco LED drivers for every application." },
+  { icon: Award, title: "GST & MSME Compliant", desc: "Registered business (GSTIN: 24AGBFS1171R1ZM) providing 100% genuine GST invoices." },
+  { icon: MessageCircle, title: "Direct Partner Support", desc: "Prompt communication and project quotes directly from Gopalbhai Bhammar and team." },
+  { icon: CheckCircle, title: "Bulk & Trade Pricing", desc: "Competitive wholesale rates for electrical contractors, builders, and retailers." },
 ];
 
 export default function HomePage() {
@@ -29,23 +29,27 @@ export default function HomePage() {
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+          }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-400/30 rounded-full px-4 py-1.5 text-sm text-orange-300 mb-6">
-              <Zap className="w-4 h-4" /> Rajkot, Gujarat • B2B Electronics OEM Partner
+              <Zap className="w-4 h-4" /> Dahod, Gujarat • LED Lighting & Electrical Solutions
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              High-Precision
-              <span className="text-orange-400 block">Electronics</span>
-              Manufacturing
+              Lighting Up Every Space with
+              <span className="text-orange-400 block">Smart Electrical</span>
+              Solutions
             </h1>
             <p className="text-lg text-blue-100 mb-10 max-w-xl leading-relaxed">
-              Trusted by 250+ manufacturers across India for industrial controllers,
-              SMPS power supplies, IoT gateways, and custom PCBA — engineered for the
-              harshest industrial environments.
+              Explore high-performance LED panel lights, COBs, downlights, heavy-duty floodlights,
+              streetlights, and dependable SMPS power drivers engineered for residential, commercial,
+              and industrial demands.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -58,7 +62,7 @@ export default function HomePage() {
                 href="/products"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-base"
               >
-                Browse Products <ChevronRight className="w-5 h-5" />
+                Browse Catalogue <ChevronRight className="w-5 h-5" />
               </Link>
             </div>
           </div>
@@ -82,26 +86,27 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Who We Are</span>
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">About Samarth Electronics Hub</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                India&apos;s Trusted Industrial Electronics Manufacturing Partner
+                Your Dependable Electrical & LED Lighting Supply Partner
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                Samarth Electronics is a premier B2B electronics manufacturing enterprise led by{" "}
-                <strong>Gopal Bhammar</strong>. For over 12 years, we have engineered rugged, industrial-grade
-                controllers, power supplies, IoT gateways, and custom PCBA assemblies that power factories,
-                energy systems, and OEM products across India.
+                <strong>SAMARTH ELECTRONICS HUB</strong> is a Dahod, Gujarat based enterprise led by{" "}
+                <strong>Gopalbhai Rambhai Bhammar</strong> and <strong>Lokeshkumar Rameshbhai Solaki</strong>.
+                We specialize in distributing and supplying high-efficiency LED illumination products and
+                solid-state electrical components across Gujarat and India.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                We are not a retail electronics vendor — we are your design-to-manufacture partner. From
-                circuit schematic to functional tested finished product, every step happens in our Rajkot facility.
+                From architectural slim panels, decorative colour-tunable downlights, and Grace COBs to industrial
+                floodlights and heavy-duty SMPS drivers, our inventory caters to trade contractors, electrical retailers,
+                and large-scale installation projects.
               </p>
               <ul className="space-y-3">
                 {[
-                  "Full-service PCBA: SMT + THT assembly with AOI inspection",
-                  "Custom hardware design and embedded firmware development",
-                  "Turnkey box-build assembly with branding and packaging",
-                  "ISO-aligned quality processes with full unit traceability",
+                  "Comprehensive portfolio: Panels, Downlights, COB, Flood & Street Lights",
+                  "Heavy-duty, waterproof & slim pencil SMPS drivers (2A to 33A)",
+                  "Official GST registered (24AGBFS1171R1ZM) & Udyam MSME certified",
+                  "Direct trade consultation & wholesale quotations via WhatsApp",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-gray-700 text-sm">
                     <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
@@ -118,8 +123,8 @@ export default function HomePage() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl bg-gray-100 aspect-[4/3] relative">
               <Image
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
-                alt="Samarth Electronics Manufacturing Facility"
+                src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=900&q=80"
+                alt="Samarth Electronics Hub Lighting Products"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -133,14 +138,14 @@ export default function HomePage() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">What We Make</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Product Categories</h2>
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Product Categories</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Explore Our Product Range</h2>
             <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-              From precision controllers to ruggedized IoT hardware — our catalogue covers every industrial electronics need.
+              Engineered lighting fixtures and power electronics tailored for residences, corporate offices, outdoor environments, and industrial facilities.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {initialCategories.slice(0, 6).map((cat) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {initialCategories.map((cat) => (
               <Link
                 key={cat.id}
                 href={`/products?category=${cat.slug}`}
@@ -148,11 +153,11 @@ export default function HomePage() {
               >
                 <div className="relative h-44 bg-gray-100">
                   <Image
-                    src={cat.image || "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=70"}
+                    src={cat.image || "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=600&q=70"}
                     alt={cat.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent" />
                 </div>
@@ -162,7 +167,7 @@ export default function HomePage() {
                   </h3>
                   <p className="text-gray-500 text-sm mt-1 line-clamp-2">{cat.description}</p>
                   <div className="mt-3 inline-flex items-center gap-1 text-blue-600 text-sm font-medium">
-                    View Products <ChevronRight className="w-4 h-4" />
+                    View Range <ChevronRight className="w-4 h-4" />
                   </div>
                 </div>
               </Link>
@@ -173,7 +178,7 @@ export default function HomePage() {
               href="/products"
               className="inline-flex items-center gap-2 bg-blue-800 hover:bg-blue-900 text-white font-semibold px-8 py-3 rounded-xl transition-colors"
             >
-              View All Products <ArrowRight className="w-5 h-5" />
+              Browse Full Catalogue <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
@@ -183,50 +188,54 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Featured</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Popular Products</h2>
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Top Picks</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Popular Models</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProducts.map((product) => {
               const primaryImage = product.images.find((i) => i.isPrimary) || product.images[0];
               return (
-                <div key={product.id} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group">
-                  <div className="relative h-52 bg-gray-50">
-                    {primaryImage && (
-                      <Image
-                        src={primaryImage.imageUrl}
-                        alt={primaryImage.altText || product.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    )}
-                    <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
-                      Featured
+                <div key={product.id} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group flex flex-col justify-between">
+                  <div>
+                    <div className="relative h-52 bg-gray-50">
+                      {primaryImage && (
+                        <Image
+                          src={primaryImage.imageUrl}
+                          alt={primaryImage.altText || product.name}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                      )}
+                      <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                        Featured
+                      </div>
+                    </div>
+                    <div className="p-5 pb-0">
+                      <div className="text-xs text-blue-600 font-medium mb-1 uppercase tracking-wide">
+                        SKU: {product.sku}
+                      </div>
+                      <h3 className="font-semibold text-gray-900 leading-snug line-clamp-2 mb-2">
+                        {product.name}
+                      </h3>
+                      <p className="text-gray-500 text-sm line-clamp-2 mb-4">
+                        {product.shortDescription}
+                      </p>
                     </div>
                   </div>
-                  <div className="p-5">
-                    <div className="text-xs text-blue-600 font-medium mb-1 uppercase tracking-wide">
-                      {product.category?.name || "Electronics"}
-                    </div>
-                    <h3 className="font-semibold text-gray-900 leading-snug line-clamp-2 mb-2">
-                      {product.name}
-                    </h3>
-                    <p className="text-gray-500 text-sm line-clamp-2 mb-4">
-                      {product.shortDescription}
-                    </p>
-                    <div className="flex gap-3">
+                  <div className="p-5 pt-0">
+                    <div className="flex gap-3 mt-4">
                       <Link
                         href={`/products/${product.slug}`}
                         className="flex-1 text-center border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white text-sm font-semibold py-2 rounded-lg transition-colors"
                       >
-                        View Details
+                        Details
                       </Link>
                       <Link
                         href={`/contact?product=${product.slug}&productName=${encodeURIComponent(product.name)}`}
                         className="flex-1 text-center bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold py-2 rounded-lg transition-colors"
                       >
-                        Inquire Now
+                        Inquire
                       </Link>
                     </div>
                   </div>
@@ -241,10 +250,10 @@ export default function HomePage() {
       <section className="py-20 bg-blue-950 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">Our Services</span>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-2">Manufacturing Capabilities</h2>
+            <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">Business Capabilities</span>
+            <h2 className="text-3xl sm:text-4xl font-bold mt-2">Services & Wholesale Supply</h2>
             <p className="text-blue-200 mt-3 max-w-xl mx-auto">
-              End-to-end electronics manufacturing from design to packaged product delivery.
+              Supplying high-efficiency lighting and electrical distribution solutions across Western India.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -273,8 +282,8 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Why Samarth</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Why Manufacturers Choose Us</h2>
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Built for Performance & Value</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {WHY_CHOOSE.map((item) => (
@@ -296,10 +305,10 @@ export default function HomePage() {
       <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Ready to Start Your Electronics Project?
+            Looking for Bulk or Trade Inquiries?
           </h2>
           <p className="text-orange-100 text-lg mb-8 max-w-xl mx-auto">
-            Talk to our engineering team. Get a no-obligation technical discussion and quotation within 24 hours.
+            Get in touch with Samarth Electronics Hub today. Contact Gopalbhai Bhammar for instant trade quotations and technical specifications.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -309,12 +318,12 @@ export default function HomePage() {
               <Phone className="w-5 h-5" /> Request a Quote
             </Link>
             <a
-              href="https://wa.me/919876543210?text=Hello%20Samarth%20Electronics%2C%20I%20want%20to%20discuss%20a%20project."
+              href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\+/g, "")}?text=Hello%20Samarth%20Electronics%20Hub%2C%20I%20want%20to%20inquire%20about%20your%20products.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-3.5 rounded-xl transition-colors"
             >
-              <MessageCircle className="w-5 h-5" /> WhatsApp Now
+              <MessageCircle className="w-5 h-5" /> WhatsApp: {initialCompanySettings.phone}
             </a>
           </div>
         </div>
@@ -322,4 +331,3 @@ export default function HomePage() {
     </>
   );
 }
-

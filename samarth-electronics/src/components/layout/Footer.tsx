@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Zap, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { initialCompanySettings, initialCategories } from "@/lib/seed-data";
 
 export default function Footer() {
   return (
@@ -15,16 +16,15 @@ export default function Footer() {
               </div>
               <div>
                 <span className="font-bold text-white text-lg block leading-none">Samarth</span>
-                <span className="text-orange-400 text-xs font-semibold tracking-widest">ELECTRONICS</span>
+                <span className="text-orange-400 text-xs font-semibold tracking-widest uppercase">ELECTRONICS HUB</span>
               </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-400">
-              B2B electronics manufacturing and PCBA assembly enterprise led by{" "}
-              <span className="text-white">Gopal Bhammar</span>. Based in Rajkot, Gujarat, delivering
-              industrial-grade electronics to manufacturers across India.
+              LED lighting and electrical enterprise led by{" "}
+              <span className="text-white">Gopalbhai Bhammar</span> and <span className="text-white">Lokeshkumar Solaki</span>. Based in Limdi, Dahod, Gujarat, delivering high-efficiency panels, COBs, floodlights, and SMPS power supplies across India.
             </p>
             <a
-              href="https://wa.me/919876543210?text=Hello%20Samarth%20Electronics%2C%20I%20have%20a%20business%20inquiry."
+              href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\+/g, "")}?text=Hello%20Samarth%20Electronics%20Hub%2C%20I%20have%20a%20business%20inquiry.`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-2 rounded-lg transition font-medium"
@@ -42,7 +42,7 @@ export default function Footer() {
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About Us" },
                 { href: "/products", label: "Product Catalogue" },
-                { href: "/services", label: "Services" },
+                { href: "/services", label: "Capabilities & Supply" },
                 { href: "/contact", label: "Get a Quote" },
               ].map((l) => (
                 <li key={l.href}>
@@ -56,18 +56,12 @@ export default function Footer() {
 
           {/* Product Categories */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Products</h3>
+            <h3 className="text-white font-semibold mb-4">Product Families</h3>
             <ul className="space-y-2 text-sm">
-              {[
-                "Industrial Electronic Controllers",
-                "SMPS & Power Supplies",
-                "IoT Sensor Nodes & Gateways",
-                "Motor Drivers & Speed Regulators",
-                "Relay Modules & SSR",
-              ].map((cat) => (
-                <li key={cat}>
-                  <Link href="/products" className="hover:text-orange-400 transition-colors">
-                    {cat}
+              {initialCategories.slice(0, 5).map((cat) => (
+                <li key={cat.id}>
+                  <Link href={`/products?category=${cat.slug}`} className="hover:text-orange-400 transition-colors">
+                    {cat.name}
                   </Link>
                 </li>
               ))}
@@ -76,36 +70,35 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-white font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex gap-2.5 items-start">
                 <MapPin className="w-4 h-4 text-orange-400 mt-0.5 shrink-0" />
-                <span>Plot No. 42, GIDC Industrial Estate, Rajkot, Gujarat — 360003</span>
+                <span>{initialCompanySettings.address}, {initialCompanySettings.city}, Gujarat — {initialCompanySettings.pincode}</span>
               </li>
               <li className="flex gap-2.5 items-center">
                 <Phone className="w-4 h-4 text-orange-400 shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-orange-400 transition-colors">
-                  +91 98765 43210
+                <a href={`tel:${initialCompanySettings.phone}`} className="hover:text-orange-400 transition-colors">
+                  {initialCompanySettings.phone}
                 </a>
               </li>
               <li className="flex gap-2.5 items-center">
                 <Mail className="w-4 h-4 text-orange-400 shrink-0" />
-                <a href="mailto:contact@samarthelectronics.in" className="hover:text-orange-400 transition-colors">
-                  contact@samarthelectronics.in
+                <a href={`mailto:${initialCompanySettings.email}`} className="hover:text-orange-400 transition-colors">
+                  {initialCompanySettings.email}
                 </a>
               </li>
-              <li className="text-xs text-gray-500 mt-2">Mon – Sat: 9:00 AM – 7:00 PM (IST)</li>
+              <li className="text-xs text-gray-500 mt-2">{initialCompanySettings.workingHours}</li>
             </ul>
           </div>
         </div>
 
         {/* Bottom */}
         <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Samarth Electronics. All rights reserved.</p>
-          <p>GST: 24AABCS1234F1Z5 | Made in India 🇮🇳</p>
+          <p>© {new Date().getFullYear()} {initialCompanySettings.companyName}. All rights reserved.</p>
+          <p>GSTIN: {initialCompanySettings.gstNumber} | Udyam: UDYAM-GJ-07-0040753 | Made in India 🇮🇳</p>
         </div>
       </div>
     </footer>
   );
 }
-
