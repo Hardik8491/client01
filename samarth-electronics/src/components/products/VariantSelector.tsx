@@ -34,13 +34,13 @@ export default function VariantSelector({ productName, sku, whatsappPhone, varia
   return (
     <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 mb-8">
       {/* B2B Quotation Notice (Prices Hidden) */}
-      <div className="flex items-center justify-between mb-5 pb-4 border-b border-gray-200">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-4 border-b border-gray-200">
         <div>
           <span className="text-xs uppercase tracking-wider text-gray-500 font-semibold block mb-1">
             Pricing Availability
           </span>
           <div className="flex items-center gap-2">
-            <span className="text-lg font-bold text-blue-900">
+            <span className="text-base sm:text-lg font-bold text-blue-900">
               Wholesale / Trade Price on Inquiry
             </span>
           </div>
@@ -49,7 +49,7 @@ export default function VariantSelector({ productName, sku, whatsappPhone, varia
           </span>
         </div>
 
-        <div className="text-right">
+        <div className="self-start sm:self-auto">
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-xs font-semibold px-3 py-1.5 rounded-full border border-emerald-200">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             Trade Supply Available

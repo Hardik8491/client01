@@ -58,11 +58,11 @@ export default async function ProductsPage({ searchParams }: Props) {
               {categoryFilter && <input type="hidden" name="category" value={categoryFilter} />}
             </form>
 
-            <div className="flex gap-2 items-center flex-wrap">
+            <div className="flex gap-2 items-center overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap scrollbar-none">
               <Filter className="w-5 h-5 text-gray-500 shrink-0" />
               <Link
                 href="/products"
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${!categoryFilter ? "bg-blue-800 text-white" : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"}`}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors shrink-0 ${!categoryFilter ? "bg-blue-800 text-white" : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"}`}
               >
                 All
               </Link>
@@ -70,7 +70,7 @@ export default async function ProductsPage({ searchParams }: Props) {
                 <Link
                   key={cat.id}
                   href={`/products?category=${cat.slug}`}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${categoryFilter === cat.slug ? "bg-blue-800 text-white" : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"}`}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap shrink-0 ${categoryFilter === cat.slug ? "bg-blue-800 text-white" : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"}`}
                 >
                   {cat.name}
                 </Link>
@@ -129,9 +129,10 @@ export default async function ProductsPage({ searchParams }: Props) {
                         </Link>
                         <Link
                           href={`/contact?productName=${encodeURIComponent(product.name)}`}
-                          className="flex-1 text-center bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold py-2 rounded-lg transition-colors"
+                          className="flex-1 text-center font-semibold py-2 rounded-lg transition-colors text-xs shadow-sm"
+                          style={{ color: "#ffffff", backgroundColor: "#f97316" }}
                         >
-                          Inquire
+                          <span style={{ color: "#ffffff" }}>Inquire</span>
                         </Link>
                       </div>
                     </div>

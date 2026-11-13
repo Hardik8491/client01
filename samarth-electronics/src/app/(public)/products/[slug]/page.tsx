@@ -125,9 +125,10 @@ export default async function ProductDetailPage({ params }: Props) {
                 <div className="space-y-3 mb-6">
                   <Link
                     href={`/contact?productName=${encodeURIComponent(product.name)}&productId=${product.id}`}
-                    className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition-colors"
+                    className="w-full flex items-center justify-center gap-2 font-bold py-3.5 rounded-xl transition-colors shadow-sm"
+                    style={{ color: "#ffffff", backgroundColor: "#f97316" }}
                   >
-                    Request Inquiry / Quotation
+                    <span style={{ color: "#ffffff" }}>Request Inquiry / Quotation</span>
                   </Link>
                   <a
                     href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(whatsappMessage)}`}

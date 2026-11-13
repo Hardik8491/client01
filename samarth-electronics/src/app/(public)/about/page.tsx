@@ -312,17 +312,21 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-xl transition-colors"
+              className="inline-flex items-center justify-center gap-2 font-bold px-8 py-3.5 rounded-xl transition-colors shadow-sm"
+              style={{ color: "#ffffff", backgroundColor: "#f97316" }}
             >
-              Contact Us <ArrowRight className="w-5 h-5" />
+              <span style={{ color: "#ffffff" }}>Contact Us</span>
+              <ArrowRight className="w-5 h-5 text-white" style={{ color: "#ffffff" }} />
             </Link>
             <a
               href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\+/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-3.5 rounded-xl transition-colors"
+              className="inline-flex items-center justify-center gap-2 font-bold px-8 py-3.5 rounded-xl transition-colors shadow-sm"
+              style={{ color: "#ffffff", backgroundColor: "#047857" }}
             >
-              <MessageCircle className="w-5 h-5" /> WhatsApp Desk ({initialCompanySettings.phone})
+              <MessageCircle className="w-5 h-5" style={{ color: "#ffffff" }} />
+              <span style={{ color: "#ffffff" }}>WhatsApp Desk ({initialCompanySettings.phone})</span>
             </a>
           </div>
         </div>

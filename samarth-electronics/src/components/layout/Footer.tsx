@@ -36,10 +36,11 @@ export default function Footer() {
               href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\+/g, "")}?text=Hello%20Samarth%20Electronics%20Hub%2C%20I%20have%20a%20business%20inquiry.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-2 rounded-lg transition font-medium"
+              className="mt-4 inline-flex items-center gap-2 text-white text-sm px-4 py-2 rounded-lg transition font-medium shadow-sm"
+              style={{ color: "#ffffff", backgroundColor: "#047857" }}
             >
-              <MessageCircle className="w-4 h-4" />
-              WhatsApp Us
+              <MessageCircle className="w-4 h-4" style={{ color: "#ffffff" }} />
+              <span style={{ color: "#ffffff" }}>WhatsApp Us</span>
             </a>
           </div>
 
