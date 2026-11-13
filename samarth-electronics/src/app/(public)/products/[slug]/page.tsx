@@ -109,10 +109,13 @@ export default async function ProductDetailPage({ params }: Props) {
             {/* Dynamic Variant Selector (Wattages, Ampere, Pricing, Specs) */}
             {hasVariants ? (
               <VariantSelector
+                productId={product.id}
                 productName={product.name}
                 sku={product.sku}
                 whatsappPhone={initialCompanySettings.whatsapp}
                 variants={product.variants!}
+                image={primaryImage?.imageUrl}
+                categoryName={category?.name}
               />
             ) : (
               <>
@@ -124,6 +127,13 @@ export default async function ProductDetailPage({ params }: Props) {
 
                 {/* CTAs */}
                 <div className="space-y-3 mb-6">
+                  <AddToInquiryButton
+                    productId={product.id}
+                    productName={product.name}
+                    sku={product.sku}
+                    categoryName={category?.name}
+                    image={primaryImage?.imageUrl}
+                  />
                   <Link
                     href={`/contact?productName=${encodeURIComponent(product.name)}&productId=${product.id}`}
                     className="w-full flex items-center justify-center gap-2 font-bold py-3.5 rounded-xl transition-colors shadow-sm"

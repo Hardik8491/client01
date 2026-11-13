@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight, Shield, Zap, Award,
-  CheckCircle, Phone, MessageCircle, ChevronRight, Lightbulb
+  CheckCircle, Phone, MessageCircle, ChevronRight, Lightbulb, FileDown
 } from "lucide-react";
 import { initialProducts, initialCategories, initialServices, initialCompanySettings } from "@/lib/seed-data";
+import FAQSection from "@/components/common/FAQSection";
 
 const STATS = [
   { label: "Product Lines", value: "30+" },
@@ -63,10 +64,10 @@ export default function HomePage() {
               streetlights, and dependable SMPS power drivers engineered for residential, commercial,
               and industrial demands.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-base"
+                className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-base shadow-sm"
               >
                 Request a Quote <ArrowRight className="w-5 h-5" />
               </Link>
@@ -76,6 +77,14 @@ export default function HomePage() {
               >
                 Browse Catalogue <ChevronRight className="w-5 h-5" />
               </Link>
+              <a
+                href="/catalogue/samarth-electronics-catalogue.pdf"
+                download="Samarth-Electronics-Catalogue.pdf"
+                className="inline-flex items-center justify-center gap-2 bg-blue-900/80 hover:bg-blue-800 border border-blue-400/40 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors text-base"
+              >
+                <FileDown className="w-5 h-5 text-orange-400" />
+                Download PDF
+              </a>
             </div>
           </div>
         </div>
@@ -307,6 +316,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── B2B TRADE FAQ ─────────────────────────────────────────────────── */}
+      <FAQSection />
 
       {/* ── CTA BANNER ───────────────────────────────────────────────────────── */}
       <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600">

@@ -396,3 +396,4 @@ const pdfBuffer = pdf.build();
 const outputPath = path.join(catalogueDir, 'samarth-electronics-catalogue.pdf');
 fs.writeFileSync(outputPath, pdfBuffer);
 console.log('Successfully generated official PDF catalogue at:', outputPath, 'Size:', pdfBuffer.length, 'bytes');
+

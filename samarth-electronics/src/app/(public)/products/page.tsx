@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Search, Filter, ChevronRight } from "lucide-react";
+import { Search, Filter, ChevronRight, FileDown } from "lucide-react";
 import type { Metadata } from "next";
 import { initialProducts, initialCategories } from "@/lib/seed-data";
+import AddToInquiryButton from "@/components/products/AddToInquiryButton";
 
 export const metadata: Metadata = {
   title: "Product Catalogue",
@@ -32,12 +33,25 @@ export default async function ProductsPage({ searchParams }: Props) {
     <>
       {/* Header */}
       <section className="bg-gradient-to-br from-blue-950 to-blue-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">Our Products</span>
-          <h1 className="text-4xl font-bold mt-2 mb-4">LED Lighting & Electrical Catalogue</h1>
-          <p className="text-blue-100 text-lg max-w-xl">
-            Browse our complete range of LED illumination fixtures and SMPS power supplies from Dahod, Gujarat.
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">Our Products</span>
+            <h1 className="text-4xl font-bold mt-2 mb-4">LED Lighting & Electrical Catalogue</h1>
+            <p className="text-blue-100 text-lg max-w-xl">
+              Browse our complete range of LED illumination fixtures and SMPS power supplies from Dahod, Gujarat.
+            </p>
+          </div>
+          <div>
+            <a
+              href="/catalogue/samarth-electronics-catalogue.pdf"
+              download="Samarth-Electronics-Catalogue.pdf"
+              className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm shrink-0"
+              style={{ color: "#ffffff" }}
+            >
+              <FileDown className="w-5 h-5 text-white" />
+              Download Trade Catalogue (PDF)
+            </a>
+          </div>
         </div>
       </section>
 
@@ -123,17 +137,19 @@ export default async function ProductsPage({ searchParams }: Props) {
                       <div className="flex gap-2">
                         <Link
                           href={`/products/${product.slug}`}
-                          className="flex-1 text-center border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white text-xs font-semibold py-2 rounded-lg transition-colors"
+                          className="flex-1 flex items-center justify-center text-center border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white text-xs font-semibold py-2 rounded-lg transition-colors"
                         >
                           Details
                         </Link>
-                        <Link
-                          href={`/contact?productName=${encodeURIComponent(product.name)}`}
-                          className="flex-1 text-center font-semibold py-2 rounded-lg transition-colors text-xs shadow-sm"
-                          style={{ color: "#ffffff", backgroundColor: "#f97316" }}
-                        >
-                          <span style={{ color: "#ffffff" }}>Inquire</span>
-                        </Link>
+                        <AddToInquiryButton
+                          productId={product.id}
+                          productName={product.name}
+                          sku={product.sku}
+                          categoryName={cat?.name}
+                          image={img?.imageUrl}
+                          variant="compact"
+                          className="flex-1"
+                        />
                       </div>
                     </div>
                   </div>

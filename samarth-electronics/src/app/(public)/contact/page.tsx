@@ -2,8 +2,9 @@
 
 import { useSearchParams } from "next/navigation";
 import { useRef, useState, Suspense } from "react";
-import { Phone, Mail, MapPin, MessageCircle, Clock, Send, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Clock, Send, CheckCircle2, Navigation } from "lucide-react";
 import { initialCompanySettings } from "@/lib/seed-data";
+import FAQSection from "@/components/common/FAQSection";
 
 function InquiryForm() {
   const params = useSearchParams();
@@ -203,6 +204,86 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* ── MAP & PHYSICAL LOCATION ────────────────────────────────────────── */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+            {/* Location Details Card */}
+            <div className="bg-gradient-to-br from-blue-950 to-blue-900 text-white rounded-2xl p-7 sm:p-8 flex flex-col justify-between">
+              <div>
+                <span className="text-orange-400 font-bold text-xs uppercase tracking-widest">
+                  Physical Depot Location
+                </span>
+                <h3 className="text-2xl font-bold mt-2 mb-4">Visit Our Limdi Hub</h3>
+                <p className="text-blue-200 text-sm leading-relaxed mb-6">
+                  Our operational depot and registered place of business is located in Limdi, Dahod district, conveniently accessible from the Karamba-Jhalod road.
+                </p>
+
+                <div className="space-y-4 text-xs">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-white block">Full Address:</span>
+                      <span className="text-blue-100">
+                        Ambli Faliyu, Karamba Road, Jhalod, Limdi / Limadi, Dahod, Gujarat — 389180
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Navigation className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-white block">Logistics Landmark:</span>
+                      <span className="text-blue-100">
+                        Karamba Road Junction • Direct transport dispatch to MP & Rajasthan border corridors
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-white block">Depot Timings:</span>
+                      <span className="text-blue-100">Monday – Saturday: 10:00 AM – 7:00 PM (IST)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-blue-800/80 mt-6">
+                <a
+                  href="https://maps.google.com/?q=Limdi+Dahod+Gujarat+389180"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold py-3 px-5 rounded-xl transition-colors shadow-sm"
+                  style={{ color: "#ffffff" }}
+                >
+                  <MapPin className="w-4 h-4" /> Open in Google Maps
+                </a>
+              </div>
+            </div>
+
+            {/* Google Maps Responsive Embed */}
+            <div className="lg:col-span-2 rounded-2xl overflow-hidden shadow-sm border border-gray-200 min-h-[380px] sm:min-h-[440px] relative bg-gray-100">
+              <iframe
+                title="Samarth Electronics Hub Location Map"
+                src="https://maps.google.com/maps?q=Limdi,+Dahod,+Gujarat+389180&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: "380px" }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full min-h-[380px] sm:min-h-[440px]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── B2B FAQ ─────────────────────────────────────────────────────────── */}
+      <FAQSection />
     </>
   );
 }

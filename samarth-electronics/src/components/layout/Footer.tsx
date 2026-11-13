@@ -61,6 +61,16 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-1">
+                <a
+                  href="/catalogue/samarth-electronics-catalogue.pdf"
+                  download="Samarth-Electronics-Catalogue.pdf"
+                  className="inline-flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-medium transition-colors"
+                >
+                  <span>Download PDF Catalogue</span>
+                  <span className="text-xs bg-orange-500/20 text-orange-300 px-1.5 py-0.5 rounded">PDF</span>
+                </a>
+              </li>
             </ul>
           </div>
 

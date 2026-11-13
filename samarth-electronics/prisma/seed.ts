@@ -17,7 +17,7 @@ async function main() {
 
   const admin = await prisma.adminUser.upsert({
     where: { email: adminEmail },
-    update: { passwordHash },
+    update: { passwordHash, name: "Gopal Bhammar" },
     create: {
       email: adminEmail,
       passwordHash,
@@ -90,9 +90,10 @@ async function main() {
   }
   console.log(`✅ ${initialCategories.length} Categories seeded`);
 
-  // 4. Seed Products
+  // 4. Seed Products, Images & Variants
+  let totalVariantsSeeded = 0;
   for (const prod of initialProducts) {
-    await prisma.product.upsert({
+    const product = await prisma.product.upsert({
       where: { slug: prod.slug },
       update: {
         name: prod.name,
@@ -132,8 +133,68 @@ async function main() {
         },
       },
     });
+
+    // Ensure images exist even if product was updated
+    for (const img of prod.images) {
+      const existing = await prisma.productImage.findFirst({
+        where: { productId: product.id, imageUrl: img.imageUrl },
+      });
+      if (!existing) {
+        await prisma.productImage.create({
+          data: {
+            productId: product.id,
+            imageUrl: img.imageUrl,
+            altText: img.altText || prod.name,
+            sortOrder: img.sortOrder,
+            isPrimary: img.isPrimary,
+          },
+        });
+      }
+    }
+
+    // Seed product variants
+    if (prod.variants && prod.variants.length > 0) {
+      for (const v of prod.variants) {
+        if (!v.sku) continue;
+        await prisma.productVariant.upsert({
+          where: { sku: v.sku },
+          update: {
+            wattage: v.wattage,
+            voltage: v.voltage,
+            model: v.model,
+            colour: v.colour,
+            size: v.size,
+            ampere: v.ampere,
+            price: v.price || 0,
+            mrp: v.mrp,
+            warrantyMonths: v.warrantyMonths,
+            batteryBackupHours: v.batteryBackupHours,
+            stock: v.stock || 0,
+            isActive: v.isActive !== false,
+          },
+          create: {
+            id: v.id,
+            productId: product.id,
+            sku: v.sku,
+            wattage: v.wattage,
+            voltage: v.voltage,
+            model: v.model,
+            colour: v.colour,
+            size: v.size,
+            ampere: v.ampere,
+            price: v.price || 0,
+            mrp: v.mrp,
+            warrantyMonths: v.warrantyMonths,
+            batteryBackupHours: v.batteryBackupHours,
+            stock: v.stock || 0,
+            isActive: v.isActive !== false,
+          },
+        });
+        totalVariantsSeeded++;
+      }
+    }
   }
-  console.log(`✅ ${initialProducts.length} Products seeded`);
+  console.log(`✅ ${initialProducts.length} Products & ${totalVariantsSeeded} Variants seeded`);
 
   // 5. Seed Services
   for (const serv of initialServices) {
