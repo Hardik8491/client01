@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Zap, Eye, EyeOff, Lock, Mail } from "lucide-react";
+import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { adminLogin } from "@/actions/auth-actions";
 
 export default function AdminLoginPage() {
@@ -29,8 +30,14 @@ export default function AdminLoginPage() {
     <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm">
       {/* Logo */}
       <div className="text-center mb-8">
-        <div className="bg-blue-800 w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <Zap className="w-8 h-8 text-orange-400" />
+        <div className="mb-4 flex justify-center">
+          <Image
+            src="/images/logo.png"
+            alt="SAMARTH Logo"
+            width={160}
+            height={50}
+            className="h-11 w-auto object-contain"
+          />
         </div>
         <h1 className="text-2xl font-bold text-gray-900">Admin Login</h1>
         <p className="text-gray-500 text-sm mt-1">Samarth Electronics CMS</p>
