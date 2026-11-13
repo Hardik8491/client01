@@ -16,15 +16,16 @@ import {
   Users,
   Calendar,
   Check,
+  Star,
 } from "lucide-react";
-import { defaultPageContents, FAQItemData, PartnerData, MilestoneData } from "@/lib/page-content-defaults";
+import { defaultPageContents, FAQItemData, PartnerData, MilestoneData, TestimonialItem } from "@/lib/page-content-defaults";
 import {
   getAllPagesData,
   savePageSection,
   resetPageSection,
 } from "@/actions/page-actions";
 
-type TabKey = "home" | "about" | "contact" | "faqs" | "announcement" | "seo";
+type TabKey = "home" | "about" | "contact" | "faqs" | "feedback" | "announcement" | "seo";
 
 export default function AdminPagesCMS() {
   const [activeTab, setActiveTab] = useState<TabKey>("home");
@@ -120,6 +121,10 @@ export default function AdminPagesCMS() {
     ? contents.global.faqs
     : defaultPageContents.global.faqs;
 
+  const testimonialsList: TestimonialItem[] = Array.isArray(contents.global?.testimonials)
+    ? contents.global.testimonials
+    : defaultPageContents.global.testimonials;
+
   return (
     <div className="max-w-5xl mx-auto pb-16">
       {/* Page Title & Live Preview Links */}
@@ -173,6 +178,7 @@ export default function AdminPagesCMS() {
           { key: "about" as TabKey, label: "About Us", icon: Info },
           { key: "contact" as TabKey, label: "Contact & Depot", icon: MapPin },
           { key: "faqs" as TabKey, label: "FAQ Manager", icon: HelpCircle },
+          { key: "feedback" as TabKey, label: "Client Feedback", icon: Star },
           { key: "announcement" as TabKey, label: "Top Notice Bar", icon: Megaphone },
           { key: "seo" as TabKey, label: "SEO & Meta", icon: Globe },
         ].map((tab) => {
@@ -819,6 +825,214 @@ export default function AdminPagesCMS() {
                       setContents((p: any) => ({ ...p, global: { ...p.global, faqs: updated } }));
                     }}
                     className="w-full text-xs sm:text-sm text-gray-600 border border-gray-300 rounded-xl px-3.5 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── TAB: CLIENT FEEDBACK / REVIEWS ─────────────────────────────────── */}
+      {activeTab === "feedback" && (
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+            <div>
+              <span className="text-xs font-bold text-orange-600 uppercase tracking-wider block mb-0.5">
+                Social Proof & Credibility
+              </span>
+              <h3 className="text-lg font-bold text-gray-900">Client Reviews & Contractor Testimonials</h3>
+              <p className="text-xs text-gray-500 mt-0.5">
+                Manage contractor and retailer feedback displayed on the Homepage and About pages.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  const updated = [
+                    ...testimonialsList,
+                    {
+                      clientName: "New Contractor / Dealer",
+                      companyOrCity: "Store Name • City, State",
+                      rating: 5,
+                      comment:
+                        "Excellent product quality, robust surge withstand drivers, and on-time delivery.",
+                      projectOrProduct: "LED Panels & Drivers",
+                      isActive: true,
+                    },
+                  ];
+                  setContents((p: any) => ({
+                    ...p,
+                    global: { ...p.global, testimonials: updated },
+                  }));
+                }}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-900 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-3.5 py-2 rounded-xl transition cursor-pointer"
+              >
+                <Plus className="w-4 h-4" /> Add Review
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleSaveSection("global", "testimonials")}
+                disabled={savingKey === "global.testimonials"}
+                className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-950 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow-sm cursor-pointer"
+              >
+                {savingKey === "global.testimonials" ? (
+                  <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  <Save className="w-4 h-4" />
+                )}
+                Save All Reviews
+              </button>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {testimonialsList.map((t, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 shadow-sm space-y-4"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-gray-100">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-gray-400 font-mono">#{idx + 1}</span>
+                    <span className="text-sm font-bold text-gray-900">{t.clientName || "Unnamed Client"}</span>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs text-gray-600 font-medium">Rating:</span>
+                      <select
+                        value={t.rating || 5}
+                        onChange={(e) => {
+                          const updated = [...testimonialsList];
+                          updated[idx] = { ...updated[idx], rating: parseInt(e.target.value, 10) };
+                          setContents((p: any) => ({
+                            ...p,
+                            global: { ...p.global, testimonials: updated },
+                          }));
+                        }}
+                        className="text-xs font-bold bg-amber-50 border border-amber-200 text-amber-800 rounded px-2 py-1"
+                      >
+                        <option value={5}>⭐⭐⭐⭐⭐ (5 Stars)</option>
+                        <option value={4}>⭐⭐⭐⭐ (4 Stars)</option>
+                        <option value={3}>⭐⭐⭐ (3 Stars)</option>
+                      </select>
+                    </div>
+
+                    <label className="flex items-center gap-1.5 text-xs text-gray-600 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={t.isActive !== false}
+                        onChange={(e) => {
+                          const updated = [...testimonialsList];
+                          updated[idx] = { ...updated[idx], isActive: e.target.checked };
+                          setContents((p: any) => ({
+                            ...p,
+                            global: { ...p.global, testimonials: updated },
+                          }));
+                        }}
+                        className="rounded text-blue-900"
+                      />
+                      Active
+                    </label>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (!confirm("Delete this review?")) return;
+                        const updated = testimonialsList.filter((_, i) => i !== idx);
+                        setContents((p: any) => ({
+                          ...p,
+                          global: { ...p.global, testimonials: updated },
+                        }));
+                      }}
+                      className="text-gray-400 hover:text-red-500 p-1 transition"
+                      title="Delete review"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-3 gap-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">
+                      Client / Contractor Name
+                    </label>
+                    <input
+                      type="text"
+                      value={t.clientName}
+                      onChange={(e) => {
+                        const updated = [...testimonialsList];
+                        updated[idx] = { ...updated[idx], clientName: e.target.value };
+                        setContents((p: any) => ({
+                          ...p,
+                          global: { ...p.global, testimonials: updated },
+                        }));
+                      }}
+                      className="w-full text-xs font-bold text-gray-900 border border-gray-300 rounded-xl px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">
+                      Company / City & State
+                    </label>
+                    <input
+                      type="text"
+                      value={t.companyOrCity}
+                      onChange={(e) => {
+                        const updated = [...testimonialsList];
+                        updated[idx] = { ...updated[idx], companyOrCity: e.target.value };
+                        setContents((p: any) => ({
+                          ...p,
+                          global: { ...p.global, testimonials: updated },
+                        }));
+                      }}
+                      className="w-full text-xs text-gray-700 border border-gray-300 rounded-xl px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">
+                      Product / Project Type
+                    </label>
+                    <input
+                      type="text"
+                      value={t.projectOrProduct || ""}
+                      placeholder="e.g. Slim Panels & SMPS"
+                      onChange={(e) => {
+                        const updated = [...testimonialsList];
+                        updated[idx] = { ...updated[idx], projectOrProduct: e.target.value };
+                        setContents((p: any) => ({
+                          ...p,
+                          global: { ...p.global, testimonials: updated },
+                        }));
+                      }}
+                      className="w-full text-xs text-gray-700 border border-gray-300 rounded-xl px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                    Client Review / Feedback Text
+                  </label>
+                  <textarea
+                    rows={2}
+                    value={t.comment}
+                    onChange={(e) => {
+                      const updated = [...testimonialsList];
+                      updated[idx] = { ...updated[idx], comment: e.target.value };
+                      setContents((p: any) => ({
+                        ...p,
+                        global: { ...p.global, testimonials: updated },
+                      }));
+                    }}
+                    className="w-full text-xs sm:text-sm text-gray-700 border border-gray-300 rounded-xl px-3.5 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
                   />
                 </div>
               </div>

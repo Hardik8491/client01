@@ -9,6 +9,16 @@ export interface FAQItemData {
   isActive?: boolean;
 }
 
+export interface TestimonialItem {
+  id?: string;
+  clientName: string;
+  companyOrCity: string;
+  rating: number; // 1 to 5
+  comment: string;
+  projectOrProduct?: string;
+  isActive?: boolean;
+}
+
 export interface PartnerData {
   name: string;
   role: string;
@@ -74,6 +84,44 @@ export const defaultPageContents = {
         question: "Why are prices not listed publicly and how do I receive the wholesale rate list?",
         answer:
           "As a B2B supplier, our quotations depend on order volumes, delivery location, and custom technical specifications. To protect our retail partners and project contractors, trade discounts are shared directly via WhatsApp or official quotation. Simply click 'Inquire on WhatsApp' or build your list using our 'Add to Inquiry' tool for instant partner rates.",
+        isActive: true,
+      },
+    ],
+    testimonials: [
+      {
+        clientName: "Ramesh Patel",
+        companyOrCity: "Patel Electricals • Dahod, Gujarat",
+        rating: 5,
+        comment:
+          "We source Slim Panels, Battens, and Grace COBs regularly for our contractor clients in Dahod district. Driver quality is top-notch with virtually zero failure, and we get prompt delivery from the Limdi depot.",
+        projectOrProduct: "LED Panels & COB Spotlights",
+        isActive: true,
+      },
+      {
+        clientName: "Jignesh Shah",
+        companyOrCity: "Shreeji Light House • Godhra, Gujarat",
+        rating: 5,
+        comment:
+          "The 27-month replacement warranty on their stadium floodlights and UFO highbays gives our commercial site contractors total peace of mind. Fast computerized GST invoices every time.",
+        projectOrProduct: "Commercial Floodlights & Highbays",
+        isActive: true,
+      },
+      {
+        clientName: "Vikram Rathore",
+        companyOrCity: "Maruti Power Systems • Banswara, Rajasthan Border",
+        rating: 5,
+        comment:
+          "We buy heavy metal mesh and IP67 waterproof SMPS drivers (10A to 33A) for architectural profiles and outdoor signage. Clean DC output, zero ripple, and solid surge protection.",
+        projectOrProduct: "Solid-State SMPS Drivers",
+        isActive: true,
+      },
+      {
+        clientName: "Mukesh Solanki",
+        companyOrCity: "Solanki Electrical Trading • Jhalod, Gujarat",
+        rating: 5,
+        comment:
+          "Best trade margins on master cartons of rechargeable AC/DC inverter bulbs and 15W deep downlights. Gopalbhai coordinates dispatches directly on WhatsApp with live bilty receipts.",
+        projectOrProduct: "AC/DC Bulbs & Downlights",
         isActive: true,
       },
     ],

@@ -6,8 +6,9 @@ import {
 } from "lucide-react";
 import { initialProducts, initialCategories, initialServices, initialCompanySettings } from "@/lib/seed-data";
 import FAQSection from "@/components/common/FAQSection";
+import TestimonialsSection from "@/components/common/TestimonialsSection";
 import { getPageSection } from "@/actions/page-actions";
-import { FAQItemData } from "@/lib/page-content-defaults";
+import { FAQItemData, TestimonialItem } from "@/lib/page-content-defaults";
 
 const STATS = [
   { label: "Product Lines", value: "30+" },
@@ -31,6 +32,7 @@ export default async function HomePage() {
   const overview = await getPageSection("home", "overview");
   const cta = await getPageSection("home", "cta");
   const faqs = await getPageSection<FAQItemData[]>("global", "faqs");
+  const testimonials = await getPageSection<TestimonialItem[]>("global", "testimonials");
   const stats = hero.stats && hero.stats.length > 0 ? hero.stats : STATS;
 
   return (
@@ -321,6 +323,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── CLIENT & CONTRACTOR FEEDBACK ──────────────────────────────────── */}
+      <TestimonialsSection testimonials={testimonials} />
 
       {/* ── B2B TRADE FAQ ─────────────────────────────────────────────────── */}
       <FAQSection faqs={faqs} />
