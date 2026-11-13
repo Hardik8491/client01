@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, MessageCircle, Download, CheckCircle, ArrowRight } from "lucide-react";
 import { initialProducts, initialCategories, initialCompanySettings } from "@/lib/seed-data";
 import VariantSelector from "@/components/products/VariantSelector";
+import AddToInquiryButton from "@/components/products/AddToInquiryButton";
 import type { Metadata } from "next";
 
 interface Props {

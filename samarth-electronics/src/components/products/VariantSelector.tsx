@@ -1,18 +1,32 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, Shield, Battery, CheckCircle, Tag } from "lucide-react";
+import { MessageCircle, Shield, Battery, ShoppingBag, Check } from "lucide-react";
 import { ProductVariant } from "@/lib/types";
+import { useInquiryCart } from "@/context/InquiryCartContext";
 
 interface Props {
+  productId?: string;
   productName: string;
   sku: string;
   whatsappPhone: string;
   variants: ProductVariant[];
+  image?: string;
+  categoryName?: string;
 }
 
-export default function VariantSelector({ productName, sku, whatsappPhone, variants }: Props) {
+export default function VariantSelector({
+  productId = "prod",
+  productName,
+  sku,
+  whatsappPhone,
+  variants,
+  image,
+  categoryName,
+}: Props) {
   const [selectedIdx, setSelectedIdx] = useState(0);
+  const [addedToList, setAddedToList] = useState(false);
+  const { addItem } = useInquiryCart();
 
   if (!variants || variants.length === 0) return null;
 
@@ -31,8 +45,24 @@ export default function VariantSelector({ productName, sku, whatsappPhone, varia
 
   const whatsappMsg = `Hello Samarth Electronics Hub, I want to inquire about *${productName}*.\n- Selected Rating / Model: ${variantDetailsText || current.sku || "Standard"}\n${current.warrantyMonths ? `- Warranty: ${current.warrantyMonths} Months\n` : ""}${current.batteryBackupHours ? `- Backup: ${current.batteryBackupHours} Hours\n` : ""}- SKU: ${current.sku || sku}\nPlease share the trade price, bulk discount, and delivery terms.`;
 
+  const handleAddToList = () => {
+    const itemUniqueId = `${sku}-${current.id || current.sku || selectedIdx}`;
+    addItem({
+      id: itemUniqueId,
+      productId: sku,
+      productName,
+      sku: current.sku || sku,
+      variantLabel: variantDetailsText || undefined,
+      categoryName,
+      image,
+      quantity: 1,
+    });
+    setAddedToList(true);
+    setTimeout(() => setAddedToList(false), 2200);
+  };
+
   return (
-    <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 mb-8">
+    <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 sm:p-6 mb-8">
       {/* B2B Quotation Notice (Prices Hidden) */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-4 border-b border-gray-200">
         <div>
@@ -57,7 +87,7 @@ export default function VariantSelector({ productName, sku, whatsappPhone, varia
         </div>
       </div>
 
-      {/* Selectable Rating / Wattage Badges (No Prices Shown) */}
+      {/* Selectable Rating / Wattage Badges */}
       <div className="mb-6">
         <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2.5">
           Select Rating / Wattage Option:
@@ -78,13 +108,13 @@ export default function VariantSelector({ productName, sku, whatsappPhone, varia
                 key={v.id || i}
                 type="button"
                 onClick={() => setSelectedIdx(i)}
-                className={`flex items-center justify-center py-3 px-4 rounded-xl border text-center transition-all ${
+                className={`flex items-center justify-center py-3 px-3 rounded-xl border text-center transition-all ${
                   isSelected
                     ? "bg-blue-900 border-blue-900 text-white shadow-md ring-2 ring-blue-900/20 font-bold"
                     : "bg-white border-gray-200 text-gray-700 hover:border-blue-400 hover:bg-blue-50/50 font-medium"
                 }`}
               >
-                <span className="text-sm">{label}</span>
+                <span className="text-xs sm:text-sm">{label}</span>
               </button>
             );
           })}
@@ -95,7 +125,9 @@ export default function VariantSelector({ productName, sku, whatsappPhone, varia
       <div className="bg-white rounded-xl p-4 border border-gray-200 mb-6 space-y-2.5 text-xs">
         <div className="flex justify-between items-center text-gray-600">
           <span className="font-medium text-gray-500">Selected Option:</span>
-          <span className="font-bold text-gray-900 text-sm">{variantDetailsText || "Standard Specification"}</span>
+          <span className="font-bold text-gray-900 text-sm">
+            {variantDetailsText || "Standard Specification"}
+          </span>
         </div>
         {current.sku && (
           <div className="flex justify-between items-center text-gray-600">
@@ -108,7 +140,9 @@ export default function VariantSelector({ productName, sku, whatsappPhone, varia
             <span className="font-medium text-gray-500 flex items-center gap-1">
               <Shield className="w-3.5 h-3.5 text-blue-600" /> Guarantee:
             </span>
-            <span className="font-semibold text-emerald-700">{current.warrantyMonths} Months Guarantee</span>
+            <span className="font-semibold text-emerald-700">
+              {current.warrantyMonths} Months Guarantee
+            </span>
           </div>
         )}
         {current.batteryBackupHours && (
@@ -116,22 +150,52 @@ export default function VariantSelector({ productName, sku, whatsappPhone, varia
             <span className="font-medium text-gray-500 flex items-center gap-1">
               <Battery className="w-3.5 h-3.5 text-amber-600" /> Battery Backup:
             </span>
-            <span className="font-semibold text-amber-700">{current.batteryBackupHours} Hours Emergency Backup</span>
+            <span className="font-semibold text-amber-700">
+              {current.batteryBackupHours} Hours Emergency Backup
+            </span>
           </div>
         )}
       </div>
 
-      {/* Direct WhatsApp Action without Price */}
-      <a
-        href={`https://wa.me/${formattedPhone}?text=${encodeURIComponent(whatsappMsg)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 px-6 rounded-xl transition-colors shadow-md text-sm"
-        style={{ color: "#ffffff", backgroundColor: "#047857" }}
-      >
-        <MessageCircle className="w-5 h-5 text-white" />
-        <span>Request Price for {variantDetailsText || "Selected"} on WhatsApp</span>
-      </a>
+      {/* Actions: Add to Inquiry Basket & WhatsApp */}
+      <div className="space-y-3">
+        <button
+          type="button"
+          onClick={handleAddToList}
+          className={`w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold transition-all shadow-sm text-sm ${
+            addedToList
+              ? "bg-emerald-600 text-white"
+              : "bg-blue-900 hover:bg-blue-950 text-white cursor-pointer"
+          }`}
+          style={{
+            backgroundColor: addedToList ? "#059669" : "#1e3a8a",
+            color: "#ffffff",
+          }}
+        >
+          {addedToList ? (
+            <>
+              <Check className="w-5 h-5 text-white" />
+              <span>Added to Inquiry Basket!</span>
+            </>
+          ) : (
+            <>
+              <ShoppingBag className="w-5 h-5 text-orange-400" />
+              <span>Add {variantDetailsText || "Selected"} to Inquiry List</span>
+            </>
+          )}
+        </button>
+
+        <a
+          href={`https://wa.me/${formattedPhone}?text=${encodeURIComponent(whatsappMsg)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 px-6 rounded-xl transition-colors shadow-md text-sm"
+          style={{ color: "#ffffff", backgroundColor: "#047857" }}
+        >
+          <MessageCircle className="w-5 h-5 text-white" />
+          <span>Quick Inquire for {variantDetailsText || "Selected"} on WhatsApp</span>
+        </a>
+      </div>
     </div>
   );
 }
