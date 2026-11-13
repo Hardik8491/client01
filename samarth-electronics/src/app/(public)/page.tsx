@@ -38,16 +38,18 @@ export default function HomePage() {
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-sm text-blue-100 mb-6">
-              <Image
-                src="/images/logo-white.png"
-                alt="SAMARTH Logo"
-                width={110}
-                height={35}
-                className="h-6 w-auto object-contain"
-                priority
-              />
-              <span className="border-l border-white/25 pl-3 text-xs sm:text-sm text-orange-300 font-medium">
+            <div className="inline-flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-full px-4 py-2.5 text-sm text-blue-100 mb-6 max-w-full">
+              <div className="flex items-center gap-2 shrink-0">
+                <Image
+                  src="/images/logo-white.png"
+                  alt="SAMARTH Logo"
+                  width={110}
+                  height={35}
+                  className="h-6 w-auto object-contain"
+                  priority
+                />
+              </div>
+              <span className="sm:border-l sm:border-white/25 sm:pl-3 text-xs sm:text-sm text-orange-300 font-medium leading-snug">
                 Limdi, Dahod, Gujarat • Commercial & Architectural LED Solutions
               </span>
             </div>

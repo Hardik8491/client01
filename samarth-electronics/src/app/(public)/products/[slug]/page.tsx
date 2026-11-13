@@ -51,7 +51,7 @@ export default async function ProductDetailPage({ params }: Props) {
           <span className="text-gray-900 font-medium line-clamp-1">{product.name}</span>
         </nav>
 
-        <div className="grid lg:grid-cols-2 gap-12 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100">
           {/* Images */}
           <div>
             <div className="relative aspect-square rounded-xl overflow-hidden bg-gray-50 mb-4">
@@ -156,14 +156,14 @@ export default async function ProductDetailPage({ params }: Props) {
 
         {/* Specifications */}
         {product.specifications && Object.keys(product.specifications).length > 0 && (
-          <div className="mt-8 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+          <div className="mt-8 bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <tbody className="divide-y divide-gray-100">
                   {Object.entries(product.specifications as Record<string, string>).map(([key, val]) => (
                     <tr key={key} className="hover:bg-gray-50">
-                      <td className="py-3 pr-8 font-medium text-gray-700 whitespace-nowrap w-1/3">{key}</td>
+                      <td className="py-3 pr-4 sm:pr-8 font-medium text-gray-700 whitespace-nowrap w-1/3">{key}</td>
                       <td className="py-3 text-gray-600">{val}</td>
                     </tr>
                   ))}
@@ -174,7 +174,7 @@ export default async function ProductDetailPage({ params }: Props) {
         )}
 
         {/* Full Description */}
-        <div className="mt-8 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+        <div className="mt-8 bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-gray-100">
           <h2 className="text-xl font-bold text-gray-900 mb-5">Product Description</h2>
           <p className="text-gray-600 leading-relaxed whitespace-pre-line">{product.description}</p>
         </div>
