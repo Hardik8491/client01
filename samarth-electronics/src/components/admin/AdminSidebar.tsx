@@ -37,13 +37,16 @@ export default function AdminSidebar() {
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="px-6 py-5 border-b border-gray-100">
-        <Link href="/admin/dashboard" className="flex items-center gap-2.5">
-          <div className="bg-blue-800 rounded-lg p-2">
-            <Zap className="w-5 h-5 text-orange-400" />
-          </div>
-          <div>
-            <div className="font-bold text-blue-900 text-sm leading-none">Samarth</div>
-            <div className="text-orange-500 text-xs font-semibold">ADMIN PANEL</div>
+        <Link href="/admin/dashboard" className="block">
+          <Image
+            src="/images/logo.png"
+            alt="SAMARTH Logo"
+            width={130}
+            height={42}
+            className="h-8 w-auto object-contain"
+          />
+          <div className="text-orange-500 text-[10px] font-bold tracking-wider uppercase mt-1">
+            ADMIN CMS PANEL
           </div>
         </Link>
       </div>
