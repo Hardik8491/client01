@@ -5,6 +5,7 @@ import { initialCompanySettings } from "@/lib/seed-data";
 import FAQSection from "@/components/common/FAQSection";
 import InquiryForm from "@/components/contact/InquiryForm";
 import { getPageSection } from "@/actions/page-actions";
+import { FAQItemData } from "@/lib/page-content-defaults";
 
 export const metadata: Metadata = {
   title: "Contact & Factory Depot",
@@ -25,6 +26,7 @@ const CONTACT_INFO = [
 export default async function ContactPage() {
   const header = await getPageSection("contact", "header");
   const depot = await getPageSection("contact", "depot");
+  const faqs = await getPageSection<FAQItemData[]>("global", "faqs");
 
   return (
     <>
@@ -195,7 +197,7 @@ export default async function ContactPage() {
       </section>
 
       {/* ── B2B FAQ ─────────────────────────────────────────────────────────── */}
-      <FAQSection />
+      <FAQSection faqs={faqs} />
     </>
   );
 }

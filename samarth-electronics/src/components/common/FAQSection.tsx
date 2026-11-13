@@ -1,62 +1,30 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle, ShieldCheck, Truck, Receipt, Wrench, PackageCheck } from "lucide-react";
+import { ChevronDown, HelpCircle, PackageCheck, ShieldCheck, Truck, Receipt, Wrench } from "lucide-react";
+import { defaultPageContents, FAQItemData } from "@/lib/page-content-defaults";
 
-interface FAQItem {
-  question: string;
-  answer: string;
-  icon: React.ComponentType<{ className?: string }>;
-  tag: string;
-}
+const TAG_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  "Orders & MOQ": PackageCheck,
+  "Warranty & Replacement": ShieldCheck,
+  "Logistics & Transport": Truck,
+  "GST & Invoicing": Receipt,
+  "Custom Technical Specs": Wrench,
+  "Trade Price Lists": HelpCircle,
+};
 
-const FAQS: FAQItem[] = [
-  {
-    icon: PackageCheck,
-    tag: "Orders & MOQ",
-    question: "What is the Minimum Order Quantity (MOQ) for wholesale or dealer pricing?",
-    answer:
-      "We cater to both commercial lighting contractors and regional electrical retail shops. For standard lines like LED panels, downlights, and regular bulbs, orders can start from single master cartons (typically 10 to 50 pieces per carton depending on the fixture). We also support flexible mixed-carton trial orders for contractors fitting out specific architectural or site requirements.",
-  },
-  {
-    icon: ShieldCheck,
-    tag: "Warranty & Replacement",
-    question: "What warranty and replacement guarantees are provided on LED fixtures and SMPS drivers?",
-    answer:
-      "We stand firmly behind our build quality. Fixtures and solid-state SMPS drivers carry standard 1-year to 2+ years (up to 27 months on select premium panel, cob spotlight, and floodlight series) replacement guarantee. For verified electrical or driver defects, we provide fast, direct piece-to-piece replacement from our Limdi, Dahod depot.",
-  },
-  {
-    icon: Truck,
-    tag: "Logistics & Transport",
-    question: "How are orders dispatched and delivered across Gujarat, MP, Rajasthan, and pan-India?",
-    answer:
-      "Located strategically in Limdi (Dahod district, close to the Gujarat-MP-Rajasthan transit corridor), we dispatch daily through leading road transport partners including V-Trans, TCI Freight, Maruti, and trusted regional parcel carriers. Bilty / LR tracking details are shared immediately on WhatsApp once the shipment leaves our depot.",
-  },
-  {
-    icon: Receipt,
-    tag: "GST & Invoicing",
-    question: "Do you supply official GST Tax Invoices for Input Tax Credit (ITC)?",
-    answer:
-      "Yes, 100%. SAMARTH ELECTRONICS HUB is an officially registered partnership startup holding active GST registration (GSTIN: 24AGBFS1171R1ZM) and MSME Udyam registration (UDYAM-GJ-07-0040753). Every commercial supply is accompanied by an authentic tax invoice with accurate HSN codes (9405 / 8504) for full ITC claims.",
-  },
-  {
-    icon: Wrench,
-    tag: "Custom Technical Specs",
-    question: "Can we request custom wattages, color temperatures (CCT), or specialized SMPS ratings?",
-    answer:
-      "Yes. In addition to standard 6500K (Cool Day Light), we supply 3000K (Warm White), 4000K (Neutral White), and 3-in-1 multi-colour toggle panel lights. For SMPS power supplies, we offer ratings from 2A up to 33A in perforated metal, waterproof IP67, sleek pencil, and eco rainproof variants suitable for LED strips, signage, and automation.",
-  },
-  {
-    icon: HelpCircle,
-    tag: "Trade Price Lists",
-    question: "Why are prices not listed publicly and how do I receive the wholesale rate list?",
-    answer:
-      "As a B2B supplier, our quotations depend on order volumes, delivery location, and custom technical specifications. To protect our retail partners and project contractors, trade discounts are shared directly via WhatsApp or official quotation. Simply click 'Inquire on WhatsApp' or build your list using our 'Add to Inquiry' tool for instant partner rates.",
-  },
-];
-
-export default function FAQSection({ className = "" }: { className?: string }) {
+export default function FAQSection({
+  className = "",
+  faqs,
+}: {
+  className?: string;
+  faqs?: FAQItemData[];
+}) {
   const [openIdx, setOpenIdx] = useState<number | null>(0); // First item open by default
+
+  const listToRender = (faqs && faqs.length > 0 ? faqs : defaultPageContents.global.faqs).filter(
+    (f) => f.isActive !== false
+  );
 
   const toggle = (idx: number) => {
     setOpenIdx(openIdx === idx ? null : idx);
@@ -82,9 +50,9 @@ export default function FAQSection({ className = "" }: { className?: string }) {
 
         {/* FAQ Accordion List */}
         <div className="space-y-4">
-          {FAQS.map((faq, idx) => {
+          {listToRender.map((faq, idx) => {
             const isOpen = openIdx === idx;
-            const Icon = faq.icon;
+            const Icon = TAG_ICONS[faq.tag] || HelpCircle;
 
             return (
               <div
@@ -162,4 +130,3 @@ export default function FAQSection({ className = "" }: { className?: string }) {
     </section>
   );
 }
-

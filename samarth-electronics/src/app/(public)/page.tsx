@@ -7,6 +7,7 @@ import {
 import { initialProducts, initialCategories, initialServices, initialCompanySettings } from "@/lib/seed-data";
 import FAQSection from "@/components/common/FAQSection";
 import { getPageSection } from "@/actions/page-actions";
+import { FAQItemData } from "@/lib/page-content-defaults";
 
 const STATS = [
   { label: "Product Lines", value: "30+" },
@@ -29,6 +30,7 @@ export default async function HomePage() {
   const hero = await getPageSection("home", "hero");
   const overview = await getPageSection("home", "overview");
   const cta = await getPageSection("home", "cta");
+  const faqs = await getPageSection<FAQItemData[]>("global", "faqs");
   const stats = hero.stats && hero.stats.length > 0 ? hero.stats : STATS;
 
   return (
@@ -321,7 +323,7 @@ export default async function HomePage() {
       </section>
 
       {/* ── B2B TRADE FAQ ─────────────────────────────────────────────────── */}
-      <FAQSection />
+      <FAQSection faqs={faqs} />
 
       {/* ── CTA BANNER ───────────────────────────────────────────────────────── */}
       <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600">

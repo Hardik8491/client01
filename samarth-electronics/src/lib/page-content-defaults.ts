@@ -1,85 +1,90 @@
 // Default content values for public pages in Samarth Electronics Hub
 // Used when database records have not yet been customized
 
-export interface HomePageContent {
-  hero: {
-    badgeText: string;
-    title: string;
-    titleHighlight: string;
-    subtitle: string;
-    stats: Array<{ label: string; value: string }>;
-  };
-  overview: {
-    tagline: string;
-    title: string;
-    description1: string;
-    description2: string;
-    highlightTitle: string;
-    highlightSubtitle: string;
-  };
-  whyChooseUs: {
-    tagline: string;
-    title: string;
-    items: Array<{ title: string; desc: string }>;
-  };
-  cta: {
-    title: string;
-    subtitle: string;
-    phoneButtonText: string;
-    whatsappButtonText: string;
-  };
+export interface FAQItemData {
+  id?: string;
+  tag: string;
+  question: string;
+  answer: string;
+  isActive?: boolean;
 }
 
-export interface AboutPageContent {
-  header: {
-    tagline: string;
-    title: string;
-    subtitle: string;
-  };
-  story: {
-    tagline: string;
-    title: string;
-    p1: string;
-    p2: string;
-    p3: string;
-  };
-  partners: Array<{
-    name: string;
-    role: string;
-    phone: string;
-    email: string;
-    focus: string;
-    bio: string;
-  }>;
-  milestones: Array<{
-    date: string;
-    title: string;
-    detail: string;
-  }>;
+export interface PartnerData {
+  name: string;
+  role: string;
+  phone: string;
+  email: string;
+  focus: string;
+  bio: string;
 }
 
-export interface ContactPageContent {
-  header: {
-    tagline: string;
-    title: string;
-    subtitle: string;
-  };
-  whatsappCard: {
-    title: string;
-    desc: string;
-    buttonText: string;
-  };
-  depot: {
-    tagline: string;
-    title: string;
-    desc: string;
-    fullAddress: string;
-    landmark: string;
-    timings: string;
-  };
+export interface MilestoneData {
+  date: string;
+  title: string;
+  detail: string;
 }
 
 export const defaultPageContents = {
+  global: {
+    announcement: {
+      enabled: true,
+      text: "💡 LED Lighting & Electrical Solutions — Dahod, Gujarat",
+      actionText: "Download Trade Catalogue (PDF)",
+      actionUrl: "/catalogue/samarth-electronics-catalogue.pdf",
+      highlightOffer: "Wholesale B2B Supply Available",
+    },
+    faqs: [
+      {
+        tag: "Orders & MOQ",
+        question: "What is the Minimum Order Quantity (MOQ) for wholesale or dealer pricing?",
+        answer:
+          "We cater to both commercial lighting contractors and regional electrical retail shops. For standard lines like LED panels, downlights, and regular bulbs, orders can start from single master cartons (typically 10 to 50 pieces per carton depending on the fixture). We also support flexible mixed-carton trial orders for contractors fitting out specific architectural or site requirements.",
+        isActive: true,
+      },
+      {
+        tag: "Warranty & Replacement",
+        question: "What warranty and replacement guarantees are provided on LED fixtures and SMPS drivers?",
+        answer:
+          "We stand firmly behind our build quality. Fixtures and solid-state SMPS drivers carry standard 1-year to 2+ years (up to 27 months on select premium panel, cob spotlight, and floodlight series) replacement guarantee. For verified electrical or driver defects, we provide fast, direct piece-to-piece replacement from our Limdi, Dahod depot.",
+        isActive: true,
+      },
+      {
+        tag: "Logistics & Transport",
+        question: "How are orders dispatched and delivered across Gujarat, MP, Rajasthan, and pan-India?",
+        answer:
+          "Located strategically in Limdi (Dahod district, close to the Gujarat-MP-Rajasthan transit corridor), we dispatch daily through leading road transport partners including V-Trans, TCI Freight, Maruti, and trusted regional parcel carriers. Bilty / LR tracking details are shared immediately on WhatsApp once the shipment leaves our depot.",
+        isActive: true,
+      },
+      {
+        tag: "GST & Invoicing",
+        question: "Do you supply official GST Tax Invoices for Input Tax Credit (ITC)?",
+        answer:
+          "Yes, 100%. SAMARTH ELECTRONICS HUB is an officially registered partnership startup holding active GST registration (GSTIN: 24AGBFS1171R1ZM) and MSME Udyam registration (UDYAM-GJ-07-0040753). Every commercial supply is accompanied by an authentic tax invoice with accurate HSN codes (9405 / 8504) for full ITC claims.",
+        isActive: true,
+      },
+      {
+        tag: "Custom Technical Specs",
+        question: "Can we request custom wattages, color temperatures (CCT), or specialized SMPS ratings?",
+        answer:
+          "Yes. In addition to standard 6500K (Cool Day Light), we supply 3000K (Warm White), 4000K (Neutral White), and 3-in-1 multi-colour toggle panel lights. For SMPS power supplies, we offer ratings from 2A up to 33A in perforated metal, waterproof IP67, sleek pencil, and eco rainproof variants suitable for LED strips, signage, and automation.",
+        isActive: true,
+      },
+      {
+        tag: "Trade Price Lists",
+        question: "Why are prices not listed publicly and how do I receive the wholesale rate list?",
+        answer:
+          "As a B2B supplier, our quotations depend on order volumes, delivery location, and custom technical specifications. To protect our retail partners and project contractors, trade discounts are shared directly via WhatsApp or official quotation. Simply click 'Inquire on WhatsApp' or build your list using our 'Add to Inquiry' tool for instant partner rates.",
+        isActive: true,
+      },
+    ],
+    seo: {
+      siteTitle: "Samarth Electronics Hub | Commercial LED Lighting & SMPS Drivers",
+      siteDescription:
+        "Wholesale manufacturer & B2B distributor of architectural LED panels, downlights, COBs, highbay floodlights, street lights, and regulated solid-state SMPS drivers in Limdi, Dahod, Gujarat.",
+      keywords:
+        "Samarth Electronics Hub, LED Lighting Dahod, Wholesale LED Panels Gujarat, SMPS Drivers India, COB Spotlights, Floodlights Dahod, Bhammar Gopalbhai",
+    },
+  },
   home: {
     hero: {
       badgeText: "Limdi, Dahod, Gujarat • Commercial & Architectural LED Solutions",
@@ -176,6 +181,11 @@ export const defaultPageContents = {
         date: "07 October 2026",
         title: "Regular GST Registration Approved",
         detail: "Form GST REG-06 issued by Government of India approving regular partnership registration under GSTIN 24AGBFS1171R1ZM.",
+      },
+      {
+        date: "Present",
+        title: "Catalogue & Wholesale Supply",
+        detail: "Active distribution of 32+ product families spanning LED panels, downlights, COBs, streetlights, floodlights, and SMPS power supplies.",
       },
     ],
   },

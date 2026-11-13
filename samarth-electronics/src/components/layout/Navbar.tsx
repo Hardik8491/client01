@@ -17,38 +17,47 @@ const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ announcement }: { announcement?: any }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { itemCount, totalQuantity, openDrawer } = useInquiryCart();
 
+  const isNoticeEnabled = announcement?.enabled !== false;
+  const noticeText = announcement?.text || "💡 LED Lighting & Electrical Solutions — Dahod, Gujarat";
+  const actionText = announcement?.actionText || "Download Trade Catalogue (PDF)";
+  const actionUrl = announcement?.actionUrl || "/catalogue/samarth-electronics-catalogue.pdf";
+
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       {/* Top bar (Hidden on mobile for clean responsive layout, visible on desktop) */}
-      <div className="hidden md:block bg-blue-900 text-white text-xs py-2 px-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <span className="font-medium tracking-wide">
-            💡 LED Lighting & Electrical Solutions — Dahod, Gujarat
-          </span>
-          <div className="flex items-center gap-6">
-            <a
-              href="/catalogue/samarth-electronics-catalogue.pdf"
-              download="Samarth-Electronics-Catalogue.pdf"
-              className="flex items-center gap-1 text-orange-300 hover:text-white transition font-medium text-xs"
-            >
-              <FileDown className="w-3.5 h-3.5" />
-              Download Trade Catalogue (PDF)
-            </a>
-            <a
-              href={`tel:${initialCompanySettings.phone}`}
-              className="flex items-center gap-1.5 text-blue-100 hover:text-orange-300 transition font-semibold"
-            >
-              <Phone className="w-3.5 h-3.5 text-orange-400" />
-              {initialCompanySettings.phone}
-            </a>
+      {isNoticeEnabled && (
+        <div className="hidden md:block bg-blue-900 text-white text-xs py-2 px-4">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <span className="font-medium tracking-wide">
+              {noticeText}
+            </span>
+            <div className="flex items-center gap-6">
+              {actionText && actionUrl && (
+                <a
+                  href={actionUrl}
+                  download={actionUrl.endsWith(".pdf") ? "Samarth-Electronics-Catalogue.pdf" : undefined}
+                  className="flex items-center gap-1 text-orange-300 hover:text-white transition font-medium text-xs"
+                >
+                  <FileDown className="w-3.5 h-3.5" />
+                  {actionText}
+                </a>
+              )}
+              <a
+                href={`tel:${initialCompanySettings.phone}`}
+                className="flex items-center gap-1.5 text-blue-100 hover:text-orange-300 transition font-semibold"
+              >
+                <Phone className="w-3.5 h-3.5 text-orange-400" />
+                {initialCompanySettings.phone}
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Main nav */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
