@@ -38,8 +38,18 @@ export default function HomePage() {
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-400/30 rounded-full px-4 py-1.5 text-sm text-orange-300 mb-6">
-              <Zap className="w-4 h-4" /> Limdi, Dahod, Gujarat • Commercial & Architectural LED Solutions
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-sm text-blue-100 mb-6">
+              <Image
+                src="/images/logo-white.png"
+                alt="SAMARTH Logo"
+                width={110}
+                height={35}
+                className="h-6 w-auto object-contain"
+                priority
+              />
+              <span className="border-l border-white/25 pl-3 text-xs sm:text-sm text-orange-300 font-medium">
+                Limdi, Dahod, Gujarat • Commercial & Architectural LED Solutions
+              </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Lighting Up Every Space with

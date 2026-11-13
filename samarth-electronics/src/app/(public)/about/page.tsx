@@ -255,8 +255,29 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="mt-12 bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-            <h4 className="font-semibold text-gray-900 mb-4 text-sm uppercase tracking-wider text-center">
+          <div className="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+            <div className="flex flex-col sm:flex-row items-center gap-6 pb-6 mb-6 border-b border-gray-100">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 shrink-0 flex items-center justify-center">
+                <Image
+                  src="/images/logo.png"
+                  alt="SAMARTH Registered Trademark Logo"
+                  width={200}
+                  height={66}
+                  className="h-14 w-auto object-contain"
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <span className="text-xs font-bold text-orange-500 uppercase tracking-widest block mb-1">
+                  Registered Brand Identity (Class 9)
+                </span>
+                <h4 className="text-lg font-bold text-gray-900">Official SAMARTH™ Brand Mark</h4>
+                <p className="text-xs text-gray-500 mt-1">
+                  Application No. 7993579 • Proprietary logo mark representing Samarth Electronics Hub lighting and solid-state driver solutions.
+                </p>
+              </div>
+            </div>
+
+            <h4 className="font-semibold text-gray-900 mb-4 text-sm uppercase tracking-wider text-center sm:text-left">
               Official Registered Details
             </h4>
             <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-600">
