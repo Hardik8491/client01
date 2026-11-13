@@ -2,18 +2,41 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Samarth Electronics | B2B Electronics Manufacturing", template: "%s | Samarth Electronics" },
+  title: {
+    default: "Samarth Electronics Hub | LED Lighting & SMPS Solutions",
+    template: "%s | Samarth Electronics Hub",
+  },
   description:
-    "Samarth Electronics — High-precision B2B electronics manufacturing in Rajkot, Gujarat. PCBA, Industrial Controllers, SMPS, IoT Gateways, Motor Drives.",
-  keywords: ["electronics manufacturing", "PCBA", "industrial controller", "SMPS", "IoT gateway", "Rajkot", "Gujarat"],
-  authors: [{ name: "Samarth Electronics" }],
+    "Samarth Electronics Hub — Reliable B2B commercial & residential LED lighting fixtures and solid-state SMPS drivers in Limdi, Dahod District, Gujarat.",
+  keywords: [
+    "Samarth Electronics Hub",
+    "LED Lighting",
+    "LED Bulbs",
+    "LED Panels",
+    "COB Spotlights",
+    "Flood Lights",
+    "Street Lights",
+    "SMPS Drivers",
+    "Dahod",
+    "Gujarat",
+  ],
+  authors: [{ name: "Samarth Electronics Hub" }],
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "any" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://samarthelectronics.in",
-    siteName: "Samarth Electronics",
-    title: "Samarth Electronics | B2B Electronics Manufacturing",
-    description: "High-precision electronics manufacturing & turnkey solutions from Rajkot, Gujarat.",
+    siteName: "Samarth Electronics Hub",
+    title: "Samarth Electronics Hub | LED Lighting & SMPS Solutions",
+    description: "Reliable B2B LED lighting fixtures and solid-state SMPS drivers based in Limdi, Dahod, Gujarat.",
+    images: [{ url: "/images/logo.jpg", width: 805, height: 281, alt: "SAMARTH Logo" }],
   },
   robots: { index: true, follow: true },
 };
