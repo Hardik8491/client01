@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CheckCircle, Award, Users, Factory, ArrowRight, MessageCircle, Phone, Mail, MapPin, FileText, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 import { initialCompanySettings } from "@/lib/seed-data";
+import { getPageSection } from "@/actions/page-actions";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -75,21 +76,25 @@ const VALUES = [
   },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const header = await getPageSection("about", "header");
+  const story = await getPageSection("about", "story");
+
   return (
     <>
       {/* ── HEADER ───────────────────────────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">Company Profile</span>
+            <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">
+              {header.tagline || "Company Profile"}
+            </span>
             <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-5">
-              About SAMARTH ELECTRONICS HUB
+              {header.title || "About SAMARTH ELECTRONICS HUB"}
             </h1>
             <p className="text-blue-100 text-lg leading-relaxed">
-              Based in Limdi, Dahod District, Gujarat, SAMARTH ELECTRONICS HUB is dedicated to providing
-              dependable LED illumination and solid-state electrical drivers for homes, commercial establishments,
-              and industrial projects.
+              {header.subtitle ||
+                "Based in Limdi, Dahod District, Gujarat, SAMARTH ELECTRONICS HUB is dedicated to providing dependable LED illumination and solid-state electrical drivers for homes, commercial establishments, and industrial projects."}
             </p>
           </div>
         </div>
@@ -100,16 +105,23 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Our Enterprise</span>
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
+                {story.tagline || "Our Enterprise"}
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Illumination Engineering & Quality Electrical Distribution
+                {story.title || "Illumination Engineering & Quality Electrical Distribution"}
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                <strong>SAMARTH ELECTRONICS HUB</strong> was established on <strong>31 August 2026</strong> as a partnership firm in Dahod district, Gujarat. Built on the core principle of delivering reliable lighting hardware backed by manufacturer warranties, we bridge the gap between quality manufacturing and on-ground electrical project needs.
+                {story.p1 || "SAMARTH ELECTRONICS HUB was established on 31 August 2026 as a partnership firm in Dahod district, Gujarat. Built on the core principle of delivering reliable lighting hardware backed by manufacturer warranties, we bridge the gap between quality manufacturing and on-ground electrical project needs."}
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Our portfolio spans architectural slim panels, deep recessed and mini downlights, high-CRI COB spotlights, heavy-duty industrial floodlights, public street luminaires, and continuous-duty SMPS power supplies (2A to 33.3A). Every order is supplied with genuine GST tax invoices and tested component standards.
+                {story.p2 || "Our portfolio spans architectural slim panels, deep recessed and mini downlights, high-CRI COB spotlights, heavy-duty industrial floodlights, public street luminaires, and continuous-duty SMPS power supplies (2A to 33.3A). Every order is supplied with genuine GST tax invoices and tested component standards."}
               </p>
+              {story.p3 && (
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  {story.p3}
+                </p>
+              )}
 
               <div className="grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
                 {[

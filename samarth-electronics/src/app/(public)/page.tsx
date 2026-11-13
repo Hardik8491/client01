@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { initialProducts, initialCategories, initialServices, initialCompanySettings } from "@/lib/seed-data";
 import FAQSection from "@/components/common/FAQSection";
+import { getPageSection } from "@/actions/page-actions";
 
 const STATS = [
   { label: "Product Lines", value: "30+" },
@@ -23,8 +24,12 @@ const WHY_CHOOSE = [
   { icon: CheckCircle, title: "Wholesale Delivery", desc: "Competitive trade pricing for electrical retailers, contractors, and project builders." },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
   const featuredProducts = initialProducts.filter((p) => p.featured).slice(0, 3);
+  const hero = await getPageSection("home", "hero");
+  const overview = await getPageSection("home", "overview");
+  const cta = await getPageSection("home", "cta");
+  const stats = hero.stats && hero.stats.length > 0 ? hero.stats : STATS;
 
   return (
     <>
@@ -51,18 +56,16 @@ export default function HomePage() {
                 />
               </div>
               <span className="sm:border-l sm:border-white/25 sm:pl-3 text-xs sm:text-sm text-orange-300 font-medium leading-snug">
-                Limdi, Dahod, Gujarat • Commercial & Architectural LED Solutions
+                {hero.badgeText || "Limdi, Dahod, Gujarat • Commercial & Architectural LED Solutions"}
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Lighting Up Every Space with
-              <span className="text-orange-400 block">Smart Electrical</span>
+              {hero.title || "Lighting Up Every Space with"}
+              <span className="text-orange-400 block">{hero.titleHighlight || "Smart Electrical"}</span>
               Solutions
             </h1>
             <p className="text-lg text-blue-100 mb-10 max-w-xl leading-relaxed">
-              Explore high-performance LED panel lights, COBs, downlights, heavy-duty floodlights,
-              streetlights, and dependable SMPS power drivers engineered for residential, commercial,
-              and industrial demands.
+              {hero.subtitle || "Explore high-performance LED panel lights, COBs, downlights, heavy-duty floodlights, streetlights, and dependable SMPS power drivers engineered for residential, commercial, and industrial demands."}
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <Link
@@ -92,7 +95,7 @@ export default function HomePage() {
         {/* Stats bar */}
         <div className="relative bg-blue-950/60 backdrop-blur-sm border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {STATS.map((s) => (
+            {stats.map((s: any) => (
               <div key={s.label} className="text-center">
                 <div className="text-3xl font-bold text-orange-400">{s.value}</div>
                 <div className="text-blue-200 text-sm mt-1">{s.label}</div>
@@ -107,15 +110,15 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div>
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Commercial & Residential Lighting</span>
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">{overview.tagline || "Commercial & Residential Lighting"}</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Engineered for High Efficacy, Longevity & Value
+                {overview.title || "Engineered for High Efficacy, Longevity & Value"}
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                We supply an extensive range of solid-state LED fixtures and power drivers designed for architects, electrical contractors, interior designers, and commercial builders.
+                {overview.description1 || "We supply an extensive range of solid-state LED fixtures and power drivers designed for architects, electrical contractors, interior designers, and commercial builders."}
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                From precision anti-glare downlights and colour-tunable slim panels to ruggedized 600W outdoor floodlights and IP67 waterproof drivers, our products deliver consistent lumens and proven thermal reliability.
+                {overview.description2 || "From precision anti-glare downlights and colour-tunable slim panels to ruggedized 600W outdoor floodlights and IP67 waterproof drivers, our products deliver consistent lumens and proven thermal reliability."}
               </p>
               <ul className="space-y-3">
                 {[
@@ -324,10 +327,10 @@ export default function HomePage() {
       <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Looking for Bulk or Trade Inquiries?
+            {cta.title || "Looking for Bulk or Trade Inquiries?"}
           </h2>
           <p className="text-orange-100 text-lg mb-8 max-w-xl mx-auto">
-            Get in touch with Samarth Electronics Hub today. Contact Gopalbhai Bhammar for instant trade quotations and technical specifications.
+            {cta.subtitle || "Get in touch with Samarth Electronics Hub today. Contact Gopalbhai Bhammar for instant trade quotations and technical specifications."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
