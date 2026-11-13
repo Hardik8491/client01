@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow5" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+    <filter id="shadow5" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="22" stdDeviation="26" flood-color="#0f172a" flood-opacity="0.2"/>
+    </filter>
+    <linearGradient id="cylinderMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="35%" stop-color="#475569"/>
+      <stop offset="70%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="lightBeamUp" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#fef08a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="lightBeamDown" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#fef08a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bgGlow5)"/>
+
+  <!-- Upward & Downward Light Beams -->
+  <polygon points="400,210 220,40 580,40" fill="url(#lightBeamUp)"/>
+  <polygon points="400,570 180,720 620,720" fill="url(#lightBeamDown)"/>
+
+  <!-- Base Wall Fixture -->
+  <g filter="url(#shadow5)" transform="translate(400, 390)">
+    <!-- Wall Mounting Plate -->
+    <rect x="-120" y="-80" width="40" height="160" rx="6" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <rect x="-80" y="-30" width="30" height="60" fill="#334155"/>
+
+    <!-- Architectural Cylinder Body -->
+    <rect x="-50" y="-180" width="100" height="360" rx="14" fill="url(#cylinderMetal)" stroke="#64748b" stroke-width="2"/>
+
+    <!-- Top Optical Tempered Glass Lens -->
+    <ellipse cx="0" cy="-180" rx="50" ry="16" fill="#fef08a" stroke="#ca8a04" stroke-width="3"/>
+    <ellipse cx="0" cy="-180" rx="42" ry="12" fill="#ffffff" opacity="0.7"/>
+
+    <!-- Bottom Optical Tempered Glass Lens -->
+    <ellipse cx="0" cy="180" rx="50" ry="16" fill="#fef08a" stroke="#ca8a04" stroke-width="3"/>
+    <ellipse cx="0" cy="180" rx="42" ry="12" fill="#ffffff" opacity="0.7"/>
+
+    <!-- Central Accent Groove Ring -->
+    <line x1="-50" y1="0" x2="50" y2="0" stroke="#ca8a04" stroke-width="4"/>
+  </g>
+
+  <!-- Product Badge -->
+  <g transform="translate(400, 720)">
+    <rect x="-170" y="-22" width="340" height="44" rx="22" fill="#0f172a" opacity="0.88"/>
+    <text x="0" y="6" text-anchor="middle" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="16" letter-spacing="1.5">DUAL UP/DOWN WALL CYLINDER</text>
+  </g>
+</svg>

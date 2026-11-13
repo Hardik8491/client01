@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow4" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+    <filter id="shadow4" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#0f172a" flood-opacity="0.2"/>
+    </filter>
+    <linearGradient id="trackBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bgGlow4)"/>
+  <ellipse cx="400" cy="710" rx="240" ry="28" fill="#0f172a" opacity="0.14"/>
+
+  <!-- Horizontal Track Rail at Top -->
+  <g transform="translate(400, 160)">
+    <rect x="-350" y="-25" width="700" height="50" rx="4" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <rect x="-340" y="-8" width="680" height="16" fill="#1e293b"/>
+    <line x1="-330" y1="0" x2="330" y2="0" stroke="#ca8a04" stroke-width="4"/>
+  </g>
+
+  <!-- Track Adapter & Swivel Arm -->
+  <g filter="url(#shadow4)" transform="translate(400, 200)">
+    <!-- Rail Connector Box with Locking Lever -->
+    <rect x="-40" y="-15" width="80" height="45" rx="6" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <rect x="25" y="-5" width="20" height="10" rx="3" fill="#f97316"/>
+
+    <!-- Vertical Stem & Swivel Knuckle -->
+    <rect x="-10" y="30" width="20" height="50" fill="#334155"/>
+    <circle cx="0" cy="95" r="22" fill="#475569" stroke="#64748b" stroke-width="2"/>
+
+    <!-- Angled Cylindrical Spotlight Head -->
+    <g transform="rotate(35, 0, 95) translate(0, 110)">
+      <!-- Main Cylinder -->
+      <rect x="-65" y="-90" width="130" height="200" rx="16" fill="url(#trackBody)" stroke="#475569" stroke-width="3"/>
+      <!-- Cooling Fin Ridges -->
+      <line x1="-60" y1="-50" x2="60" y2="-50" stroke="#475569" stroke-width="3"/>
+      <line x1="-60" y1="-30" x2="60" y2="-30" stroke="#475569" stroke-width="3"/>
+      <line x1="-60" y1="-10" x2="60" y2="-10" stroke="#475569" stroke-width="3"/>
+      
+      <!-- Front Bezel & Deep Reflector Face -->
+      <ellipse cx="0" cy="110" rx="65" ry="24" fill="#0f172a" stroke="#64748b" stroke-width="3"/>
+      <ellipse cx="0" cy="110" rx="52" ry="18" fill="#334155"/>
+      <ellipse cx="0" cy="110" rx="34" ry="12" fill="#fef08a"/>
+      <ellipse cx="-6" cy="107" rx="8" ry="4" fill="#ffffff" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- Product Badge -->
+  <g transform="translate(400, 720)">
+    <rect x="-160" y="-22" width="320" height="44" rx="22" fill="#0f172a" opacity="0.88"/>
+    <text x="0" y="6" text-anchor="middle" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="16" letter-spacing="1.5">CORAL TRACK SPOTLIGHT</text>
+  </g>
+</svg>

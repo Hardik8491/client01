@@ -37,7 +37,7 @@ export const initialCategories: Category[] = [
     name: "LED Bulbs",
     slug: "led-bulbs",
     description: "Standard residential/commercial LED bulbs and AC/DC emergency rechargeable backup bulbs.",
-    image: "https://images.unsplash.com/photo-1550985543-f47f38aeee65?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/led-bulb-regular.jpg",
     isActive: true,
     sortOrder: 1,
     productCount: 2,
@@ -49,7 +49,7 @@ export const initialCategories: Category[] = [
     name: "LED Tubelights",
     slug: "led-tubelights",
     description: "Energy-efficient surface/batten LED tubelights from 5W to 100W for homes, offices, and warehouses.",
-    image: "https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/led-tubelight-batten.jpg",
     isActive: true,
     sortOrder: 2,
     productCount: 1,
@@ -61,7 +61,7 @@ export const initialCategories: Category[] = [
     name: "LED Panel Lights",
     slug: "led-panel-lights",
     description: "Slim panels, aqua panels, pixel panels, PC panels, side-blue panels, adjustable panels, link series and 2×2 panels.",
-    image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/led-panel-slim.jpg",
     isActive: true,
     sortOrder: 3,
     productCount: 10,
@@ -73,7 +73,7 @@ export const initialCategories: Category[] = [
     name: "LED Downlights",
     slug: "led-downlights",
     description: "Mini downlights, deep downlights, prime CCT downlights and PC downlights in multiple wattages for recessed installations.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/led-downlight-mini.jpg",
     isActive: true,
     sortOrder: 4,
     productCount: 5,
@@ -85,7 +85,7 @@ export const initialCategories: Category[] = [
     name: "COB & Spot Lights",
     slug: "cob-spot-lights",
     description: "Grace COB, Reflection COB, Coral COB, PC COB and PC Dior COB spotlights with adjustable body and reflector options.",
-    image: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/cob-spotlight-grace.jpg",
     isActive: true,
     sortOrder: 5,
     productCount: 7,
@@ -97,7 +97,7 @@ export const initialCategories: Category[] = [
     name: "Flood Lights",
     slug: "flood-lights",
     description: "Slim model, Indian model, Coral, Lens, GM model, Grace, DOB, 7-in-1, and Stadium floodlights from 20W to 600W.",
-    image: "https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/floodlight-slim.jpg",
     isActive: true,
     sortOrder: 6,
     productCount: 11,
@@ -109,7 +109,7 @@ export const initialCategories: Category[] = [
     name: "Street Lights",
     slug: "street-lights",
     description: "Picasso series, Lens model and Glass model LED street lights engineered for roads, housing societies, and municipal projects.",
-    image: "https://images.unsplash.com/photo-1515224526220-0de7e18e21d2?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/streetlight-picasso.jpg",
     isActive: true,
     sortOrder: 7,
     productCount: 4,
@@ -121,7 +121,7 @@ export const initialCategories: Category[] = [
     name: "High-Bay & Industrial Lights",
     slug: "highbay-industrial-lights",
     description: "Highbay lights with thermostat driver, UFO power LEDs and stadium lights for factories, warehouses, and sports arenas.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/highbay-ufo.jpg",
     isActive: true,
     sortOrder: 8,
     productCount: 4,
@@ -133,7 +133,7 @@ export const initialCategories: Category[] = [
     name: "LED Drivers / SMPS",
     slug: "led-drivers-smps",
     description: "Eco SMPS, Sleek (Pencil) SMPS, Heavy SMPS, Waterproof SMPS and Q Series power supplies in ratings from 2A to 33.3A.",
-    image: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/smps-heavy.jpg",
     isActive: true,
     sortOrder: 9,
     productCount: 5,
@@ -145,7 +145,7 @@ export const initialCategories: Category[] = [
     name: "Track, Wall & Decorative Lights",
     slug: "track-wall-decorative",
     description: "Coral track lights, track patti, coral wall lights, grace cylinder surface lights, button lights and junction fixtures.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+    image: "/images/products/track-light-coral.svg",
     isActive: true,
     sortOrder: 10,
     productCount: 6,
@@ -197,7 +197,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-blb-1",
-        imageUrl: "https://images.unsplash.com/photo-1550985543-f47f38aeee65?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-bulb-regular.jpg",
         altText: "Regular High-Lumen LED Bulb",
         sortOrder: 0,
         isPrimary: true,
@@ -242,7 +242,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-acdc-1",
-        imageUrl: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-bulb-acdc.jpg",
         altText: "AC/DC Emergency Rechargeable Inverter LED Bulb",
         sortOrder: 0,
         isPrimary: true,
@@ -293,7 +293,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-tube-1",
-        imageUrl: "https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-tubelight-batten.jpg",
         altText: "LED Surface Batten Tubelight",
         sortOrder: 0,
         isPrimary: true,
@@ -341,7 +341,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-1",
-        imageUrl: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-panel-slim.jpg",
         altText: "Samarth Electronics Hub Slim Panel Light",
         sortOrder: 0,
         isPrimary: true,
@@ -378,7 +378,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-2",
-        imageUrl: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-panel-aqua.jpg",
         altText: "Aqua Panel Light",
         sortOrder: 0,
         isPrimary: true,
@@ -411,7 +411,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-3",
-        imageUrl: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-panel-sideblue.svg",
         altText: "Side Blue Panel Light",
         sortOrder: 0,
         isPrimary: true,
@@ -444,7 +444,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-4",
-        imageUrl: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-panel-pixel.svg",
         altText: "Pixel Panel Light",
         sortOrder: 0,
         isPrimary: true,
@@ -477,7 +477,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-5",
-        imageUrl: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-panel-slim.jpg",
         altText: "Link Series PC Panel",
         sortOrder: 0,
         isPrimary: true,
@@ -511,7 +511,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-6",
-        imageUrl: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-panel-2x2.jpg",
         altText: "2x2 False Ceiling Panel Light",
         sortOrder: 0,
         isPrimary: true,
@@ -544,7 +544,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-7",
-        imageUrl: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-panel-slim.jpg",
         altText: "Adjustable Surface Panel",
         sortOrder: 0,
         isPrimary: true,
@@ -579,7 +579,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-8",
-        imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-downlight-mini.jpg",
         altText: "Mini Down Light",
         sortOrder: 0,
         isPrimary: true,
@@ -612,7 +612,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-9",
-        imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-downlight-deep.svg",
         altText: "Deep Down Light",
         sortOrder: 0,
         isPrimary: true,
@@ -644,7 +644,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-10",
-        imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-downlight-mini.jpg",
         altText: "Prime Downlight CCT",
         sortOrder: 0,
         isPrimary: true,
@@ -676,7 +676,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-11",
-        imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/led-downlight-mini.jpg",
         altText: "PC Down Light",
         sortOrder: 0,
         isPrimary: true,
@@ -711,7 +711,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-12",
-        imageUrl: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/cob-spotlight-grace.jpg",
         altText: "Grace COB Spotlight",
         sortOrder: 0,
         isPrimary: true,
@@ -744,7 +744,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-13",
-        imageUrl: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/cob-spotlight-grace.jpg",
         altText: "Reflection COB Light",
         sortOrder: 0,
         isPrimary: true,
@@ -776,7 +776,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-14",
-        imageUrl: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/cob-spotlight-grace.jpg",
         altText: "Coral COB Series",
         sortOrder: 0,
         isPrimary: true,
@@ -809,7 +809,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-15",
-        imageUrl: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/cob-spotlight-grace.jpg",
         altText: "PC COB Spotlight",
         sortOrder: 0,
         isPrimary: true,
@@ -844,7 +844,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-16",
-        imageUrl: "https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/floodlight-slim.jpg",
         altText: "Slim Model Flood Light",
         sortOrder: 0,
         isPrimary: true,
@@ -877,7 +877,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-17",
-        imageUrl: "https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/floodlight-slim.jpg",
         altText: "Indian Model Flood Light",
         sortOrder: 0,
         isPrimary: true,
@@ -909,7 +909,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-18",
-        imageUrl: "https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/floodlight-slim.jpg",
         altText: "Lens Flood Light",
         sortOrder: 0,
         isPrimary: true,
@@ -941,7 +941,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-19",
-        imageUrl: "https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/floodlight-slim.jpg",
         altText: "Grace Flood Light",
         sortOrder: 0,
         isPrimary: true,
@@ -973,7 +973,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-20",
-        imageUrl: "https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/floodlight-slim.jpg",
         altText: "RGB Flood Light",
         sortOrder: 0,
         isPrimary: true,
@@ -1006,7 +1006,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-21",
-        imageUrl: "https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/floodlight-stadium.jpg",
         altText: "Stadium Light",
         sortOrder: 0,
         isPrimary: true,
@@ -1041,7 +1041,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-22",
-        imageUrl: "https://images.unsplash.com/photo-1515224526220-0de7e18e21d2?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/streetlight-picasso.jpg",
         altText: "Picasso Street Light",
         sortOrder: 0,
         isPrimary: true,
@@ -1073,7 +1073,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-23",
-        imageUrl: "https://images.unsplash.com/photo-1515224526220-0de7e18e21d2?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/streetlight-picasso.jpg",
         altText: "Lens Street Light",
         sortOrder: 0,
         isPrimary: true,
@@ -1108,7 +1108,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-24",
-        imageUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/highbay-ufo.jpg",
         altText: "Highbay Light Thermostat Driver",
         sortOrder: 0,
         isPrimary: true,
@@ -1140,7 +1140,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-25",
-        imageUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/highbay-ufo.jpg",
         altText: "UFO Power LED Highbay",
         sortOrder: 0,
         isPrimary: true,
@@ -1175,7 +1175,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-26",
-        imageUrl: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/smps-heavy.jpg",
         altText: "Heavy SMPS Power Supply",
         sortOrder: 0,
         isPrimary: true,
@@ -1207,7 +1207,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-27",
-        imageUrl: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/smps-waterproof.svg",
         altText: "Waterproof SMPS",
         sortOrder: 0,
         isPrimary: true,
@@ -1239,7 +1239,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-28",
-        imageUrl: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/smps-sleek-pencil.svg",
         altText: "Sleek Pencil SMPS",
         sortOrder: 0,
         isPrimary: true,
@@ -1271,7 +1271,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-29",
-        imageUrl: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/smps-heavy.jpg",
         altText: "Eco SMPS Power Supply",
         sortOrder: 0,
         isPrimary: true,
@@ -1305,7 +1305,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-30",
-        imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/track-light-coral.svg",
         altText: "Coral Track Light",
         sortOrder: 0,
         isPrimary: true,
@@ -1337,7 +1337,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-31",
-        imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/wall-cylinder-light.svg",
         altText: "Cylinder Surface Light",
         sortOrder: 0,
         isPrimary: true,
@@ -1370,7 +1370,7 @@ export const initialProducts: Product[] = [
     images: [
       {
         id: "img-32",
-        imageUrl: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/images/products/junction-button-light.svg",
         altText: "Junction & Button Lights",
         sortOrder: 0,
         isPrimary: true,
@@ -1396,7 +1396,7 @@ export const initialServices: Service[] = [
       "Wide colour options: white, warm white, neutral white, RGB, 3-in-1 CCT",
     ],
     icon: "Zap",
-    imageUrl: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=1000&q=80",
+    imageUrl: "/images/products/led-panel-slim.jpg",
     sortOrder: 1,
     status: "PUBLISHED",
     createdAt: new Date().toISOString(),
@@ -1417,7 +1417,7 @@ export const initialServices: Service[] = [
       "Q-Series: 5A, 10A, 20A, 30A",
     ],
     icon: "Cpu",
-    imageUrl: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1000&q=80",
+    imageUrl: "/images/products/smps-heavy.jpg",
     sortOrder: 2,
     status: "PUBLISHED",
     createdAt: new Date().toISOString(),
@@ -1437,7 +1437,7 @@ export const initialServices: Service[] = [
       "Quick response via WhatsApp and email",
     ],
     icon: "Users",
-    imageUrl: "https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1000&q=80",
+    imageUrl: "/images/products/floodlight-slim.jpg",
     sortOrder: 3,
     status: "PUBLISHED",
     createdAt: new Date().toISOString(),
@@ -1457,7 +1457,7 @@ export const initialServices: Service[] = [
       "Quick consultation via WhatsApp: +91 9624234603",
     ],
     icon: "MessageCircle",
-    imageUrl: "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
+    imageUrl: "/images/products/cob-spotlight-grace.jpg",
     sortOrder: 4,
     status: "PUBLISHED",
     createdAt: new Date().toISOString(),

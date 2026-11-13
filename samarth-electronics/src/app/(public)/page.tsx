@@ -118,7 +118,7 @@ export default function HomePage() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl bg-gray-100 aspect-[4/3] relative">
               <Image
-                src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=900&q=80"
+                src="/images/products/led-panel-slim.jpg"
                 alt="Samarth Electronics Hub Lighting Products"
                 fill
                 className="object-cover"
@@ -148,7 +148,7 @@ export default function HomePage() {
               >
                 <div className="relative h-44 bg-gray-100">
                   <Image
-                    src={cat.image || "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=600&q=70"}
+                    src={cat.image || "/images/products/led-panel-slim.jpg"}
                     alt={cat.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"

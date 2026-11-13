@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow6" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+    <filter id="shadow6" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+    <linearGradient id="alumExtrusion" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="25%" stop-color="#cbd5e1"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="75%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bgGlow6)"/>
+  <ellipse cx="400" cy="690" rx="280" ry="30" fill="#0f172a" opacity="0.14"/>
+
+  <g filter="url(#shadow6)" transform="translate(400, 390)">
+    <!-- Input Cable (AC Line) -->
+    <path d="M -300 0 C -340 0, -360 -40, -380 -40" stroke="#0f172a" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Sealed Rubber Gland Left -->
+    <rect x="-265" y="-18" width="25" height="36" rx="4" fill="#0f172a"/>
+
+    <!-- Main Extruded Aluminium Enclosure -->
+    <rect x="-240" y="-90" width="480" height="180" rx="14" fill="url(#alumExtrusion)" stroke="#475569" stroke-width="3"/>
+    
+    <!-- Heat Sink Extrusion Fins (Horizontal) -->
+    <line x1="-220" y1="-70" x2="220" y2="-70" stroke="#475569" stroke-width="2.5"/><line x1="-220" y1="-50" x2="220" y2="-50" stroke="#475569" stroke-width="2.5"/><line x1="-220" y1="-30" x2="220" y2="-30" stroke="#475569" stroke-width="2.5"/><line x1="-220" y1="-10" x2="220" y2="-10" stroke="#475569" stroke-width="2.5"/><line x1="-220" y1="10" x2="220" y2="10" stroke="#475569" stroke-width="2.5"/><line x1="-220" y1="30" x2="220" y2="30" stroke="#475569" stroke-width="2.5"/><line x1="-220" y1="50" x2="220" y2="50" stroke="#475569" stroke-width="2.5"/><line x1="-220" y1="70" x2="220" y2="70" stroke="#475569" stroke-width="2.5"/>
+
+    <!-- Center Specification Plate -->
+    <rect x="-160" y="-55" width="320" height="110" rx="8" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <text x="0" y="-24" text-anchor="middle" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="15" letter-spacing="1">SAMARTH ELECTRONICS HUB</text>
+    <text x="0" y="2" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="13">WATERPROOF LED DRIVER · IP67</text>
+    <text x="0" y="26" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="11">INPUT: 170-265V AC | OUTPUT: 12V DC</text>
+    <rect x="-35" y="34" width="70" height="16" rx="8" fill="#10b981"/>
+    <text x="0" y="46" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="10">IP67 PASS</text>
+
+    <!-- Sealed Rubber Gland Right -->
+    <rect x="240" y="-18" width="25" height="36" rx="4" fill="#0f172a"/>
+    <!-- Output Cable (DC Line) -->
+    <path d="M 265 0 C 305 0, 325 40, 370 40" stroke="#ef4444" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M 265 8 C 305 8, 325 48, 370 48" stroke="#0f172a" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Product Badge -->
+  <g transform="translate(400, 720)">
+    <rect x="-170" y="-22" width="340" height="44" rx="22" fill="#0f172a" opacity="0.88"/>
+    <text x="0" y="6" text-anchor="middle" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="16" letter-spacing="1.5">IP67 WATERPROOF DRIVER</text>
+  </g>
+</svg>

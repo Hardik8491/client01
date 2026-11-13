@@ -130,7 +130,7 @@ export default function AboutPage() {
 
             <div className="rounded-2xl overflow-hidden shadow-xl aspect-square relative bg-gray-100 border border-gray-200">
               <Image
-                src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=900&q=80"
+                src="/images/products/led-panel-slim.jpg"
                 alt="Samarth Electronics Hub Lighting Solutions"
                 fill
                 className="object-cover"

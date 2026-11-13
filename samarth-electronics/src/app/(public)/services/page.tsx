@@ -56,7 +56,7 @@ export default function ServicesPage() {
               </div>
               <div className={`rounded-2xl overflow-hidden shadow-xl aspect-[4/3] relative ${idx % 2 === 1 ? "lg:col-start-1" : ""}`}>
                 <Image
-                  src={service.imageUrl || "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"}
+                  src={service.imageUrl || "/images/products/led-panel-slim.jpg"}
                   alt={service.title}
                   fill
                   className="object-cover"
