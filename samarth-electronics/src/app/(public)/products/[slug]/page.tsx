@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, MessageCircle, Download, CheckCircle, ArrowRight } from "lucide-react";
-import { initialProducts, initialCategories } from "@/lib/seed-data";
+import { initialProducts, initialCategories, initialCompanySettings } from "@/lib/seed-data";
+import VariantSelector from "@/components/products/VariantSelector";
 import type { Metadata } from "next";
 
 interface Props {
@@ -31,6 +32,7 @@ export default async function ProductDetailPage({ params }: Props) {
     .filter((p) => p.categoryId === product.categoryId && p.id !== product.id && p.status === "PUBLISHED")
     .slice(0, 3);
 
+  const hasVariants = product.variants && product.variants.length > 0;
   const whatsappMessage = `Hello Samarth Electronics Hub, I am interested in *${product.name}* (SKU: ${product.sku}). Please share pricing and availability.`;
 
   return (
@@ -103,37 +105,51 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
             )}
 
-            {/* Price note */}
-            <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-6">
-              <p className="text-sm text-blue-700 font-medium">💼 B2B Pricing Available on Inquiry</p>
-              <p className="text-xs text-blue-600 mt-1">Pricing depends on quantity, customization, and delivery terms. Contact us for a detailed quotation.</p>
-            </div>
+            {/* Dynamic Variant Selector (Wattages, Ampere, Pricing, Specs) */}
+            {hasVariants ? (
+              <VariantSelector
+                productName={product.name}
+                sku={product.sku}
+                whatsappPhone={initialCompanySettings.whatsapp}
+                variants={product.variants!}
+              />
+            ) : (
+              <>
+                {/* Price note for custom / non-variant items */}
+                <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-6">
+                  <p className="text-sm text-blue-700 font-medium">💼 B2B Pricing Available on Inquiry</p>
+                  <p className="text-xs text-blue-600 mt-1">Pricing depends on quantity, customization, and delivery terms. Contact us for a detailed quotation.</p>
+                </div>
 
-            {/* CTAs */}
-            <div className="space-y-3">
-              <Link
-                href={`/contact?productName=${encodeURIComponent(product.name)}&productId=${product.id}`}
-                className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition-colors"
-              >
-                Request Inquiry / Quotation
-              </Link>
+                {/* CTAs */}
+                <div className="space-y-3 mb-6">
+                  <Link
+                    href={`/contact?productName=${encodeURIComponent(product.name)}&productId=${product.id}`}
+                    className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition-colors"
+                  >
+                    Request Inquiry / Quotation
+                  </Link>
+                  <a
+                    href={`https://wa.me/${initialCompanySettings.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(whatsappMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-3.5 rounded-xl transition-colors shadow-sm"
+                    style={{ color: "#ffffff", backgroundColor: "#047857" }}
+                  >
+                    <MessageCircle className="w-5 h-5 text-white" /> Inquire on WhatsApp
+                  </a>
+                </div>
+              </>
+            )}
+
+            {product.datasheetUrl && product.datasheetUrl !== "#" && (
               <a
-                href={`https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3.5 rounded-xl transition-colors"
+                href={product.datasheetUrl}
+                className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 rounded-xl transition-colors mb-4"
               >
-                <MessageCircle className="w-5 h-5" /> WhatsApp This Product
+                <Download className="w-5 h-5" /> Download Datasheet (PDF)
               </a>
-              {product.datasheetUrl && product.datasheetUrl !== "#" && (
-                <a
-                  href={product.datasheetUrl}
-                  className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 rounded-xl transition-colors"
-                >
-                  <Download className="w-5 h-5" /> Download Datasheet (PDF)
-                </a>
-              )}
-            </div>
+            )}
           </div>
         </div>
 

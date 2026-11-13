@@ -24,6 +24,24 @@ export interface ProductImage {
   isPrimary: boolean;
 }
 
+export interface ProductVariant {
+  id: string;
+  productId?: string;
+  sku?: string | null;
+  wattage?: number | string | null;
+  voltage?: string | null;
+  model?: string | null;
+  colour?: string | null;
+  size?: string | null;
+  ampere?: string | null;
+  price: number; // numeric wholesale/trade price
+  mrp?: number | null;
+  warrantyMonths?: number | null;
+  batteryBackupHours?: number | null;
+  stock?: number;
+  isActive?: boolean;
+}
+
 export interface Product {
   id: string;
   categoryId: string;
@@ -41,6 +59,7 @@ export interface Product {
   featured: boolean;
   sortOrder: number;
   supplierPrice?: string | null;
+  variants?: ProductVariant[];
   images: ProductImage[];
   createdAt: Date | string;
   updatedAt: Date | string;

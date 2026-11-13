@@ -79,6 +79,7 @@ model Product {
   status           ProductStatus  @default(PUBLISHED)
   featured         Boolean        @default(false)
   sortOrder        Int            @default(0)
+  variants         ProductVariant[]
   images           ProductImage[]
   inquiries        Inquiry[]
   createdAt        DateTime       @default(now())
@@ -90,6 +91,32 @@ model Product {
   @@index([status])
   @@index([featured])
   @@map("products")
+}
+
+model ProductVariant {
+  id                 String   @id @default(cuid())
+  productId          String
+  product            Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sku                String?  @unique
+  wattage            Int?
+  voltage            String?
+  model              String?
+  colour             String?
+  size               String?
+  ampere             String?
+  price              Decimal  @db.Decimal(10, 2)
+  mrp                Decimal? @db.Decimal(10, 2)
+  warrantyMonths     Int?
+  batteryBackupHours Int?
+  stock              Int      @default(0)
+  isActive           Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@index([productId])
+  @@index([sku])
+  @@index([isActive])
+  @@map("product_variants")
 }
 
 model ProductImage {
