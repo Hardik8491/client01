@@ -40,7 +40,7 @@ export default function Navbar() {
             <Zap className="w-5 h-5 text-orange-400" />
           </div>
           <div>
-            <span className="font-bold text-blue-900 text-lg leading-none block">Samarth</span>
+            <span className="font-bold text-blue-900 text-lg leading-none block">SAMARTH</span>
             <span className="text-orange-500 text-xs font-semibold tracking-wide uppercase">ELECTRONICS HUB</span>
           </div>
         </Link>
