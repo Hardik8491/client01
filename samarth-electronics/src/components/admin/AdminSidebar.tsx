@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard, Package, Tags, Wrench, FileText,
-  MessageSquare, Settings, LogOut, Menu, X, Zap, ChevronRight
+  MessageSquare, Settings, LogOut, Menu, X, ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { adminLogout } from "@/actions/auth-actions";
