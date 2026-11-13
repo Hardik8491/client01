@@ -34,22 +34,22 @@ export default function Navbar() {
       </div>
 
       {/* Main nav */}
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group py-1">
+        <Link href="/" className="flex items-center gap-3.5 group py-1 shrink-0">
           <Image
             src="/images/logo.png"
             alt="SAMARTH Logo"
-            width={140}
-            height={44}
-            className="h-10 w-auto object-contain"
+            width={180}
+            height={63}
+            className="h-11 sm:h-12 w-auto object-contain transition-transform group-hover:scale-[1.02]"
             priority
           />
-          <div className="border-l border-gray-200 pl-2.5 hidden sm:block">
-            <span className="text-orange-500 text-[11px] font-bold tracking-wider uppercase block leading-tight">
+          <div className="border-l border-gray-200 pl-3 hidden sm:flex flex-col justify-center">
+            <span className="text-orange-500 text-xs font-bold tracking-wider uppercase leading-tight">
               ELECTRONICS HUB
             </span>
-            <span className="text-gray-400 text-[9px] font-medium tracking-normal block leading-tight">
+            <span className="text-gray-400 text-[10px] font-medium tracking-normal mt-0.5 leading-tight">
               Dahod · Gujarat
             </span>
           </div>
