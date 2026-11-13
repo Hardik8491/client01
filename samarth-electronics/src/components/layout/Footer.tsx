@@ -114,9 +114,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+        <div className="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
           <p>© {new Date().getFullYear()} {initialCompanySettings.companyName}. All rights reserved.</p>
-          <p>Dahod, Gujarat • Made in India 🇮🇳</p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy-policy" className="hover:text-gray-300 transition-colors">
+              Privacy Policy
+            </Link>
+            <span>•</span>
+            <Link href="/terms" className="hover:text-gray-300 transition-colors">
+              Terms & Trade Conditions
+            </Link>
+            <span>•</span>
+            <span>Dahod, Gujarat • Made in India 🇮🇳</span>
+          </div>
         </div>
       </div>
     </footer>

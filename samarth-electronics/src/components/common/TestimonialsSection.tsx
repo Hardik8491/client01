@@ -62,7 +62,9 @@ export default function TestimonialsSection({
               <div className="pt-4 border-t border-gray-200/60">
                 <div className="flex items-center gap-1.5">
                   <h4 className="font-bold text-gray-900 text-sm leading-snug">{t.clientName}</h4>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-700 shrink-0" title="Verified Trade Client" />
+                  <span title="Verified Trade Client" className="inline-flex items-center">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+                  </span>
                 </div>
                 <div className="text-xs text-gray-500 mt-0.5">{t.companyOrCity}</div>
                 {t.projectOrProduct && (

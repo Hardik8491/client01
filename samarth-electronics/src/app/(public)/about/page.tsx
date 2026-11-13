@@ -4,6 +4,8 @@ import { CheckCircle, Award, Users, Factory, ArrowRight, MessageCircle, Phone, M
 import type { Metadata } from "next";
 import { initialCompanySettings } from "@/lib/seed-data";
 import { getPageSection } from "@/actions/page-actions";
+import TestimonialsSection from "@/components/common/TestimonialsSection";
+import { TestimonialItem } from "@/lib/page-content-defaults";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -79,6 +81,7 @@ const VALUES = [
 export default async function AboutPage() {
   const header = await getPageSection("about", "header");
   const story = await getPageSection("about", "story");
+  const testimonials = await getPageSection<TestimonialItem[]>("global", "testimonials");
 
   return (
     <>
@@ -313,6 +316,9 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ── CLIENT & CONTRACTOR FEEDBACK ──────────────────────────────────── */}
+      <TestimonialsSection testimonials={testimonials} />
 
       {/* ── CALL TO ACTION ────────────────────────────────────────────────────── */}
       <section className="py-16 bg-blue-900 text-white">
