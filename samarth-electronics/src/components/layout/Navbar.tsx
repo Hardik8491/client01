@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Zap, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { initialCompanySettings } from "@/lib/seed-data";
 
@@ -35,13 +36,22 @@ export default function Navbar() {
       {/* Main nav */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-blue-800 rounded-lg p-2 group-hover:bg-blue-700 transition">
-            <Zap className="w-5 h-5 text-orange-400" />
-          </div>
-          <div>
-            <span className="font-bold text-blue-900 text-lg leading-none block">SAMARTH</span>
-            <span className="text-orange-500 text-xs font-semibold tracking-wide uppercase">ELECTRONICS HUB</span>
+        <Link href="/" className="flex items-center gap-3 group py-1">
+          <Image
+            src="/images/logo.png"
+            alt="SAMARTH Logo"
+            width={140}
+            height={44}
+            className="h-10 w-auto object-contain"
+            priority
+          />
+          <div className="border-l border-gray-200 pl-2.5 hidden sm:block">
+            <span className="text-orange-500 text-[11px] font-bold tracking-wider uppercase block leading-tight">
+              ELECTRONICS HUB
+            </span>
+            <span className="text-gray-400 text-[9px] font-medium tracking-normal block leading-tight">
+              Dahod · Gujarat
+            </span>
           </div>
         </Link>
 

@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Zap, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { initialCompanySettings, initialCategories } from "@/lib/seed-data";
 
 export default function Footer() {
@@ -10,13 +11,22 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="bg-blue-800 rounded-lg p-2">
-                <Zap className="w-5 h-5 text-orange-400" />
-              </div>
-              <div>
-                <span className="font-bold text-white text-lg block leading-none">SAMARTH</span>
-                <span className="text-orange-400 text-xs font-semibold tracking-widest uppercase">ELECTRONICS HUB</span>
+            <div className="mb-4">
+              <Link href="/" className="inline-block">
+                <Image
+                  src="/images/logo-white.png"
+                  alt="SAMARTH Logo"
+                  width={160}
+                  height={50}
+                  className="h-11 w-auto object-contain"
+                />
+              </Link>
+              <div className="mt-2 flex items-center gap-2">
+                <span className="text-orange-400 text-xs font-bold tracking-widest uppercase">
+                  ELECTRONICS HUB
+                </span>
+                <span className="text-gray-500 text-xs">•</span>
+                <span className="text-gray-400 text-xs">Dahod, Gujarat</span>
               </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-400">
